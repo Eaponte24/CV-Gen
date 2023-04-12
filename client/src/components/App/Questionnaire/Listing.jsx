@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Listing.css";
+// import "./Listing.css";
 
 const Listing = ({ onSubmit }) => {
 	const [listingInput, setUserInput] = useState("");

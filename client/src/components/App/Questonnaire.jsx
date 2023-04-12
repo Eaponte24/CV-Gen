@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './App.css';
-import Adjective from '../Adjective/Adjective';
-import Experience from '../Experience/Experience';
-import Listing from '../Listing/Listing';
+import '../../App.css';
+import Adjective from './Questionnaire/Adjective';
+import Experience from './Questionnaire/Experience';
+import Listing from './Questionnaire/Listing';
 
 const QuestionApp = () => {
   const [currentStep, setCurrentStep] = useState(1);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Experience.css';
+// import './Experience.css';
 
 const Experience = ({ questions, onSubmit }) => {
   const [expInput, setUserInput] = useState('');
