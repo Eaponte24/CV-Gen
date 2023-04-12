@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/Questonnaire';
 
+//must tailwindify this
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
