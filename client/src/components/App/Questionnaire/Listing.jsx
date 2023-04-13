@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-// import "./Listing.css";
 
 const Listing = ({ onSubmit }) => {
-	const [listingInput, setUserInput] = useState("");
+	const [listInput, setUserInput] = useState("");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		onSubmit(listingInput);
+		onSubmit(listInput);
 	};
 
 	const handleChange = (e) => {
@@ -14,20 +13,20 @@ const Listing = ({ onSubmit }) => {
 	};
 
 	return (
-		<div className="listing">
-			<h2 className="listingHeader">Paste the job listing below.</h2>
-			<h4 className="listingSubHeader">
+		<div className="listDiv">
+			<h2 className="listHeader">Paste the job listing below.</h2>
+			<h4 className="listSubHeader">
 				Please include the job title and the job description. Exlcude the
 				benefits, and other information.
 			</h4>
-			<form onSubmit={handleSubmit} className="listingForm">
+			<form onSubmit={handleSubmit} className="listForm">
 				<textarea
-					className="listingInput"
-					value={listingInput}
+					className="listInput"
+					value={listInput}
 					onChange={handleChange}
 					placeholder="Paste here..."
 				/>
-				<button type="submit" className="listingSubmitBtn">
+				<button type="submit" className="listSubmitBtn">
 					Submit
 				</button>
 			</form>

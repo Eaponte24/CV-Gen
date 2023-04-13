@@ -3,7 +3,7 @@ import "../../App.css";
 import Adjective from "./Questionnaire/Adjective";
 import Experience from "./Questionnaire/Experience";
 import Listing from "./Questionnaire/Listing";
-import Result from "../Result";
+import Result from "./Result";
 
 const QuestionApp = () => {
 	const [currentStep, setCurrentStep] = useState(1);

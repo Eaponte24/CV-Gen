@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-// import './Experience.css';
 
-const Experience = ({ questions, onSubmit }) => {
+const Experience = ({ onSubmit }) => {
 	const [expInput, setUserInput] = useState("");
 
 	const handleSubmit = (e) => {
@@ -16,7 +15,7 @@ const Experience = ({ questions, onSubmit }) => {
 	return (
 		<div className="expDiv">
 			<h2 className="expHeader">
-				In one sentance, describe your most relevent work experience.
+				In one sentence, describe your most relevent work experience.
 			</h2>
 			<form onSubmit={handleSubmit} className="expForm">
 				<textarea
