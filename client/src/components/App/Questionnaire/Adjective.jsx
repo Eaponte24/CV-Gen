@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Adjective = ({ onSubmit }) => {
-	const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState("");
 
 	const handleChange = (e) => {
 		setUserInput(e.target.value);

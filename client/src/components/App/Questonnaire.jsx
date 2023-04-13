@@ -15,12 +15,12 @@ const QuestionApp = () => {
 
 	const handleResultSubmit = (userInput) => {
 		handleUserInputSubmit(userInput);
-    console.log(combinedInput);
-    		// API Call to ChatGPT with combinedInput
+		console.log(combinedInput);
+		// API Call to ChatGPT with combinedInput
 	};
 
 	const handleRegenerate = () => {
-    console.log(combinedInput)
+		console.log(combinedInput);
 		// Make the API call to ChatGPT with the combined input again, and update the result
 	};
 
@@ -29,7 +29,9 @@ const QuestionApp = () => {
 			{currentStep === 1 && <Adjective onSubmit={handleUserInputSubmit} />}
 			{currentStep === 2 && <Experience onSubmit={handleUserInputSubmit} />}
 			{currentStep === 3 && <Listing onSubmit={handleResultSubmit} />}
-			{currentStep === 4 && (<Result combinedInput={combinedInput} onRegenerate={handleRegenerate} />)}
+			{currentStep === 4 && (
+				<Result combinedInput={combinedInput} onRegenerate={handleRegenerate} />
+			)}
 		</div>
 	);
 };
