@@ -10,7 +10,7 @@ const Experience = ({ onSubmit }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const formattedInput = `Mention this recent exeperience: ${userInput}
-    `;
+     `;
 		onSubmit(formattedInput);
 	};
 
