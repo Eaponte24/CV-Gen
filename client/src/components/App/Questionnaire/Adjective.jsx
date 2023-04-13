@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './Questionnaire.css';
+// import './Adjective.css';
 
 const Adjective = ({ onSubmit }) => {
   const [adjInput, setUserInput] = useState('');
