@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 
 const Adjective = ({ onSubmit }) => {
-	const [adjInput, setUserInput] = useState("");
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		onSubmit(adjInput);
-	};
+	const [userInput, setUserInput] = useState("");
 
 	const handleChange = (e) => {
 		setUserInput(e.target.value);
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const formattedInput = `Generate a one paragraph cover letter. I am ${userInput}.
+    `;
+		onSubmit(formattedInput);
 	};
 
 	return (
@@ -20,7 +22,7 @@ const Adjective = ({ onSubmit }) => {
 			<form onSubmit={handleSubmit} className="adjForm">
 				<textarea
 					className="adjInput"
-					value={adjInput}
+					value={userInput}
 					onChange={handleChange}
 					placeholder="Motivated, creative, outgoing..."
 				/>

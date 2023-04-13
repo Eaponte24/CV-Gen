@@ -16,7 +16,7 @@ const QuestionApp = () => {
 
   const handleResultSubmit = () => {
     console.log('Combined input:', combinedInput.trim());
-    // Here, you can make the API call to ChatGPT with the combined input
+    // Here, you can make the API call to ChatGPT with the combinedInput
     setCurrentStep(4);
   };
 

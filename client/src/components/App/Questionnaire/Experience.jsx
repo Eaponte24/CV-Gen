@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 
 const Experience = ({ onSubmit }) => {
-	const [expInput, setUserInput] = useState("");
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		onSubmit(expInput);
-	};
+	const [userInput, setUserInput] = useState("");
 
 	const handleChange = (e) => {
 		setUserInput(e.target.value);
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const formattedInput = `Mention this recent exeperience: ${userInput}
+    `;
+		onSubmit(formattedInput);
 	};
 
 	return (
@@ -20,9 +22,9 @@ const Experience = ({ onSubmit }) => {
 			<form onSubmit={handleSubmit} className="expForm">
 				<textarea
 					className="expInput"
-					value={expInput}
+					value={userInput}
 					onChange={handleChange}
-					placeholder="I worked as a software engineer for 5 years..."
+					placeholder="I've worked as a software developer for 2 years..."
 				/>
 				<button type="submit" className="expSubmitBtn">
 					Submit

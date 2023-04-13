@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 
 const Listing = ({ onSubmit }) => {
-	const [listInput, setUserInput] = useState("");
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		onSubmit(listInput);
-	};
-
+	const [userInput, setUserInput] = useState('');
+  
 	const handleChange = (e) => {
-		setUserInput(e.target.value);
+	  setUserInput(e.target.value);
+	};
+  
+	const handleSubmit = (e) => {
+	  e.preventDefault();
+	  const formattedInput = `This is the job listing: ${userInput}`;
+	  onSubmit(formattedInput);
 	};
 
 	return (
@@ -22,7 +23,7 @@ const Listing = ({ onSubmit }) => {
 			<form onSubmit={handleSubmit} className="listForm">
 				<textarea
 					className="listInput"
-					value={listInput}
+					value={userInput}
 					onChange={handleChange}
 					placeholder="Paste here..."
 				/>
