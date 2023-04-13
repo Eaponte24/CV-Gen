@@ -1,29 +1,30 @@
 import React, { useState } from "react";
-// import './Experience.css';
 
-const Experience = ({ questions, onSubmit }) => {
-	const [expInput, setUserInput] = useState("");
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		onSubmit(expInput);
-	};
+const Experience = ({ onSubmit }) => {
+	const [userInput, setUserInput] = useState("");
 
 	const handleChange = (e) => {
 		setUserInput(e.target.value);
 	};
 
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const formattedInput = `Mention this recent exeperience: ${userInput}
+     `;
+		onSubmit(formattedInput);
+	};
+
 	return (
 		<div className="expDiv">
 			<h2 className="expHeader">
-				In one sentance, describe your most relevent work experience.
+				In one sentence, describe your most relevent work experience.
 			</h2>
 			<form onSubmit={handleSubmit} className="expForm">
 				<textarea
 					className="expInput"
-					value={expInput}
+					value={userInput}
 					onChange={handleChange}
-					placeholder="I worked as a software engineer for 5 years..."
+					placeholder="I've worked as a software developer for 2 years..."
 				/>
 				<button type="submit" className="expSubmitBtn">
 					Submit
