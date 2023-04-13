@@ -1,4 +1,5 @@
 const { OpenAIApi } = require('openai');
+const { v4: uuidv4 } = require('uuid');
 
 const openai = new OpenAIApi(process.env.OPENAI_API_KEY);
 
@@ -13,6 +14,21 @@ const resolvers = {
       return response.choices[0].text;
     },
   },
+
+  Mutation: {
+    sendPrompt: async (_, { prompt }) => {
+      const id = uuidv4();
+      const response = await openai.createPrompt({
+        prompt,
+        id,
+      });
+      return {
+        id,
+        prompt,
+      };
+    },
+  },
+  
 };
 
 module.exports = resolvers;
