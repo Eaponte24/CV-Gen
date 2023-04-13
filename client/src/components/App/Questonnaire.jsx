@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../App.css";
 import Adjective from "./Questionnaire/Adjective";
 import Experience from "./Questionnaire/Experience";
 import Listing from "./Questionnaire/Listing";
@@ -14,15 +13,16 @@ const QuestionApp = () => {
 		setCurrentStep((prevStep) => prevStep + 1);
 	};
 
-  const handleResultSubmit = () => {
-    console.log('Combined input:', combinedInput.trim());
-    // Here, you can make the API call to ChatGPT with the combinedInput
-    setCurrentStep(4);
-  };
+	const handleResultSubmit = (userInput) => {
+		handleUserInputSubmit(userInput);
+    console.log(combinedInput);
+    		// API Call to ChatGPT with combinedInput
+	};
 
-  const handleRegenerate = () => {
-    // Make the API call to ChatGPT with the combined input again, and update the result
-  };
+	const handleRegenerate = () => {
+    console.log(combinedInput)
+		// Make the API call to ChatGPT with the combined input again, and update the result
+	};
 
 	return (
 		<div className="App">
