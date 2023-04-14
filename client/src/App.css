@@ -64,7 +64,6 @@ textarea {
 .quizDiv textarea,
 .quizDiv button {
 	display: block;
-	width: 100%;
 	margin-top: 10px;
 }
 
@@ -74,4 +73,8 @@ textarea {
 	width: 80vw;
 	height: fit-content;
 	border-bottom: white 2px solid;
+}
+
+input::placeholder {
+ color: black;
 }
