@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import changeBackgroundColor from '../../../utils/changeBackgroundColor';
+import React, { useState, useEffect } from "react";
+import changeBackgroundColor from "../../../utils/changeBackgroundColor";
 
 const Adjective = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
@@ -32,18 +32,18 @@ const Adjective = ({ onSubmit }) => {
 	};
 
 	return (
-		<div className="adjDiv">
-			<h2 className="adjHeader">
+		<div id="adjDiv">
+			<h2 id="adjHeader">
 				As an employee, describe yourself in one word.
 			</h2>
-			<form onSubmit={handleSubmit} className="adjForm">
+			<form onSubmit={handleSubmit} id="adjForm">
 				<textarea
-					className="adjInput"
+					id="adjInput"
 					value={userInput}
 					onChange={handleChange}
 					placeholder="Motivated, creative, outgoing..."
 				/>
-				<button type="submit" className="adjSubmitBtn">
+				<button type="submit" className="quizBtn">
 					Submit
 				</button>
 			</form>

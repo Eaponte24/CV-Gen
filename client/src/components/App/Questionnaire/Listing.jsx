@@ -32,20 +32,20 @@ const Listing = ({ onSubmit }) => {
 	};
 
 	return (
-		<div className="listDiv">
-			<h2 className="listHeader">Paste the job listing below.</h2>
-			<h4 className="listSubHeader">
+		<div id="listDiv">
+			<h2 id="listHeader">Paste the job listing below.</h2>
+			<h4 id="listSubHeader">
 				Please include the job title and the job description. Exlcude the
 				benefits, and other information.
 			</h4>
-			<form onSubmit={handleSubmit} className="listForm">
+			<form onSubmit={handleSubmit} id="listForm">
 				<textarea
-					className="listInput"
+					id="listInput"
 					value={userInput}
 					onChange={handleChange}
 					placeholder="Paste here..."
 				/>
-				<button type="submit" className="listSubmitBtn">
+				<button type="submit" id="listSubmitBtn" className='quizBtn'>
 					Submit
 				</button>
 			</form>

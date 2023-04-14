@@ -32,18 +32,18 @@ const Experience = ({ onSubmit }) => {
 	};
 
 	return (
-		<div className="expDiv">
-			<h2 className="expHeader">
+		<div id="expDiv">
+			<h2 id="expHeader">
 				In one sentence, describe your most relevent work experience.
 			</h2>
-			<form onSubmit={handleSubmit} className="expForm">
+			<form onSubmit={handleSubmit} id="expForm">
 				<textarea
-					className="expInput"
+					id="expInput"
 					value={userInput}
 					onChange={handleChange}
 					placeholder="I've worked as a software developer for 2 years..."
 				/>
-				<button type="submit" className="expSubmitBtn">
+				<button type="submit" className='quizBtn'>
 					Submit
 				</button>
 			</form>
