@@ -7,9 +7,11 @@ const db = require('./config/connection');
 
 const { Configuration, OpenAIApi } = require('openai');
 const configuration = new Configuration({
+  organization: "org-VK1LXa6UAEixm2T3aqAkk2f7",
   apiKey: process.env.OPENAI_API_KEY
 });
 const openai = new OpenAIApi(configuration);
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
