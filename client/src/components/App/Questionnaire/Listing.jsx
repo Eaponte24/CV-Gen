@@ -33,7 +33,7 @@ const Listing = ({ onSubmit }) => {
 	};
 
 	return (
-		<div id="listDiv">
+		<div className="quizDiv">
 			<h2 id="listHeader">Paste the job listing below.</h2>
 			<h4 id="listSubHeader">
 				Please include the job title and the job description. Exlcude the
@@ -50,7 +50,11 @@ const Listing = ({ onSubmit }) => {
 					onKeyDown={handleKeyDown}
 					placeholder="Paste here..."
 				/>
-				<button type="submit" id="listSubmitBtn" className="quizBtn">
+				<button
+					type="submit"
+					id="listSubmitBtn"
+					className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+				>
 					Submit
 				</button>
 			</form>

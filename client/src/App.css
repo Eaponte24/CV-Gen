@@ -43,26 +43,35 @@
 
 /* Quiz component reset CSS */
 
-input[type='text'],
+input[type="text"],
+input,
 textarea {
-  background: none;
-  border: none;
-  outline: none;
-  resize: none;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
+	background: none;
+	border: none;
+	outline: none;
+	resize: none;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
 }
 
 /* Quiz components custom CSS */
+
+.quizDiv textarea,
+.quizDiv button {
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+}
 
 #adjInput,
 #expInput,
 #listInput {
 	width: 80vw;
-  border-bottom: white 2px solid;
+	height: fit-content;
+	border-bottom: white 2px solid;
 }
