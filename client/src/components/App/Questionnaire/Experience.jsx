@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import changeBackgroundColor from '../../../utils/changeBackgroundColor';
+import React, { useState, useEffect } from "react";
+import changeBackgroundColor from "../../../utils/changeBackgroundColor";
 
 const Experience = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
@@ -20,8 +20,11 @@ const Experience = ({ onSubmit }) => {
 		changeBackgroundColor(colors);
 	}, []);
 
-	const handleChange = (e) => {
-		setUserInput(e.target.value);
+	const handleKeyDown = (e) => {
+		if (e.key === "Enter") {
+			e.preventDefault();
+			handleSubmit(e);
+		}
 	};
 
 	const handleSubmit = (e) => {
@@ -40,10 +43,11 @@ const Experience = ({ onSubmit }) => {
 				<textarea
 					id="expInput"
 					value={userInput}
-					onChange={handleChange}
+					onChange={(e) => setUserInput(e.target.value)}
+					onKeyDown={handleKeyDown}
 					placeholder="I've worked as a software developer for 2 years..."
 				/>
-				<button type="submit" className='quizBtn'>
+				<button type="submit" className="quizBtn">
 					Submit
 				</button>
 			</form>

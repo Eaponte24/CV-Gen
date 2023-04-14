@@ -6,11 +6,11 @@ const Adjective = ({ onSubmit }) => {
 
 	useEffect(() => {
 		const colors = [
-			"#FFC857",
-			"#E9724C",
-			"#C5283D",
-			"#481D24",
-			"#255C99",
+			"#004777",
+			"#A30000",
+			"#FF7700",
+			"#EFD28D",
+			"#00AFB5",
 			"#2A9D8F",
 			"#F4A261",
 			"#E9C46A",
@@ -20,8 +20,11 @@ const Adjective = ({ onSubmit }) => {
 		changeBackgroundColor(colors);
 	}, []);
 
-	const handleChange = (e) => {
-		setUserInput(e.target.value);
+	const handleKeyDown = (e) => {
+		if (e.key === "Enter") {
+			e.preventDefault();
+			handleSubmit(e);
+		}
 	};
 
 	const handleSubmit = (e) => {
@@ -33,14 +36,13 @@ const Adjective = ({ onSubmit }) => {
 
 	return (
 		<div id="adjDiv">
-			<h2 id="adjHeader">
-				As an employee, describe yourself in one word.
-			</h2>
+			<h2 id="adjHeader">As an employee, describe yourself in one word.</h2>
 			<form onSubmit={handleSubmit} id="adjForm">
 				<textarea
 					id="adjInput"
 					value={userInput}
-					onChange={handleChange}
+					onChange={(e) => setUserInput(e.target.value)}
+					onKeyDown={handleKeyDown}
 					placeholder="Motivated, creative, outgoing..."
 				/>
 				<button type="submit" className="quizBtn">

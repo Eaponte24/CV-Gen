@@ -7,16 +7,11 @@ const Result = ({ combinedInput, onRegenerate }) => {
 
 	useEffect(() => {
 		const colors = [
-			"#FFC857",
-			"#E9724C",
-			"#C5283D",
-			"#481D24",
-			"#255C99",
-			"#2A9D8F",
-			"#F4A261",
-			"#E9C46A",
-			"#E76F51",
-			"#80B918",
+			"#1E152A",
+			"#4E6766",
+			"#5AB1BB",
+			"#A5C882",
+			"#F7DD72",
 		];
 		changeBackgroundColor(colors);
 	}, []);

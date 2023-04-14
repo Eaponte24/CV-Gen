@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import changeBackgroundColor from '../../../utils/changeBackgroundColor';
+import React, { useState, useEffect } from "react";
+import changeBackgroundColor from "../../../utils/changeBackgroundColor";
 
 const Listing = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
@@ -20,15 +20,18 @@ const Listing = ({ onSubmit }) => {
 		changeBackgroundColor(colors);
 	}, []);
 
-	const handleChange = (e) => {
-		setUserInput(e.target.value);
-	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const formattedInput = `This is the job listing: ${userInput}
 	   `;
 		onSubmit(formattedInput);
+	};
+
+	const handleKeyDown = (e) => {
+		if (e.key === "Enter") {
+			e.preventDefault();
+			handleSubmit(e);
+		}
 	};
 
 	return (
@@ -42,10 +45,11 @@ const Listing = ({ onSubmit }) => {
 				<textarea
 					id="listInput"
 					value={userInput}
-					onChange={handleChange}
+					onChange={(e) => setUserInput(e.target.value)}
+					onKeyDown={handleKeyDown}
 					placeholder="Paste here..."
 				/>
-				<button type="submit" id="listSubmitBtn" className='quizBtn'>
+				<button type="submit" id="listSubmitBtn" className="quizBtn">
 					Submit
 				</button>
 			</form>

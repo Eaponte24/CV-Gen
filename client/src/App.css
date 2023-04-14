@@ -43,7 +43,8 @@
 
 /* Quiz components custom CSS */
 
-.adjInpit,
-.expInput {
-	width: 300px;
+#adjInput,
+#expInput,
+#listInput {
+	width: 80vw;
 }
