@@ -5,19 +5,7 @@ const Adjective = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
 
 	useEffect(() => {
-		const colors = [
-			"#004777",
-			"#A30000",
-			"#FF7700",
-			"#EFD28D",
-			"#00AFB5",
-			"#2A9D8F",
-			"#F4A261",
-			"#E9C46A",
-			"#E76F51",
-			"#80B918",
-		];
-		changeBackgroundColor(colors);
+		changeBackgroundColor();
 	}, []);
 
 	const handleKeyDown = (e) => {

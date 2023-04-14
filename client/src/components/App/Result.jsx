@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
-import changeBackgroundColor from '../../utils/changeBackgroundColor';
-
+import changeBackgroundColor from "../../utils/changeBackgroundColor";
 
 const Result = ({ combinedInput, onRegenerate }) => {
 	const [resultText, setResultText] = useState(combinedInput);
 
 	useEffect(() => {
-		const colors = [
-			"#1E152A",
-			"#4E6766",
-			"#5AB1BB",
-			"#A5C882",
-			"#F7DD72",
-		];
-		changeBackgroundColor(colors);
+		changeBackgroundColor();
 	}, []);
 
 	const handleCopy = () => {
@@ -36,17 +28,13 @@ const Result = ({ combinedInput, onRegenerate }) => {
 	};
 
 	return (
-		<div className="resultDiv">
-			<textarea
-				className="resultText"
-				value={resultText}
-				onChange={handleChange}
-			/>
-			<div className="resultBtnDiv">
-				<button className="copyBtn" onClick={handleCopy}>
+		<div id="resultDiv">
+			<textarea id="resultText" value={resultText} onChange={handleChange} />
+			<div id="resultBtnDiv">
+				<button id="copyBtn" className="resultBtn" onClick={handleCopy}>
 					Copy
 				</button>
-				<button className="regenBtn" onClick={handleRegenerate}>
+				<button id="regenBtn" className="resultBtn" onClick={handleRegenerate}>
 					Regenerate
 				</button>
 			</div>

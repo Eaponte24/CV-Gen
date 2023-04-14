@@ -4,22 +4,12 @@ import changeBackgroundColor from "../../../utils/changeBackgroundColor";
 const Listing = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
 
+	// Change the background color on render
 	useEffect(() => {
-		const colors = [
-			"#FFC857",
-			"#E9724C",
-			"#C5283D",
-			"#481D24",
-			"#255C99",
-			"#2A9D8F",
-			"#F4A261",
-			"#E9C46A",
-			"#E76F51",
-			"#80B918",
-		];
-		changeBackgroundColor(colors);
+		changeBackgroundColor();
 	}, []);
 
+	// Pass the formatted input to the parent component
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const formattedInput = `This is the job listing: ${userInput}
@@ -27,11 +17,19 @@ const Listing = ({ onSubmit }) => {
 		onSubmit(formattedInput);
 	};
 
+	// Watch for enter keydown and submit
 	const handleKeyDown = (e) => {
 		if (e.key === "Enter") {
 			e.preventDefault();
 			handleSubmit(e);
 		}
+	};
+
+	// Reset height to recalculate the correct height of the textarea
+	const autoResize = (event) => {
+		const target = event.target;
+		target.style.height = "inherit";
+		target.style.height = `${target.scrollHeight}px`;
 	};
 
 	return (
@@ -45,7 +43,10 @@ const Listing = ({ onSubmit }) => {
 				<textarea
 					id="listInput"
 					value={userInput}
-					onChange={(e) => setUserInput(e.target.value)}
+					onChange={(e) => {
+						setUserInput(e.target.value);
+						autoResize(e);
+					}}
 					onKeyDown={handleKeyDown}
 					placeholder="Paste here..."
 				/>

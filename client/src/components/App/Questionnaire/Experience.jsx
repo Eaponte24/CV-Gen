@@ -1,23 +1,11 @@
 import React, { useState, useEffect } from "react";
-import changeBackgroundColor from "../../../utils/changeBackgroundColor";
+import changeBackgroundColor from '../../../utils/changeBackgroundColor';
 
 const Experience = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
 
 	useEffect(() => {
-		const colors = [
-			"#FFC857",
-			"#E9724C",
-			"#C5283D",
-			"#481D24",
-			"#255C99",
-			"#2A9D8F",
-			"#F4A261",
-			"#E9C46A",
-			"#E76F51",
-			"#80B918",
-		];
-		changeBackgroundColor(colors);
+		changeBackgroundColor();
 	}, []);
 
 	const handleKeyDown = (e) => {
