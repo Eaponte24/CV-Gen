@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { changeBackgroundColor } from '../../utils';
-
+import changeBackgroundColor from '../../../utils/changeBackgroundColor';
 
 const Listing = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
