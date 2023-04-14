@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import changeBackgroundColor from "../../utils/changeBackgroundColor";
 
 const Result = ({ combinedInput, onRegenerate }) => {
 	const [resultText, setResultText] = useState(combinedInput);
+
+	useEffect(() => {
+		changeBackgroundColor();
+	}, []);
 
 	const handleCopy = () => {
 		navigator.clipboard.writeText(resultText).then(
@@ -23,18 +28,23 @@ const Result = ({ combinedInput, onRegenerate }) => {
 	};
 
 	return (
-		<div className="resultDiv">
-			<textarea
-				className="resultText"
-				value={resultText}
-				onChange={handleChange}
-			/>
-			<div className="resultBtnDiv">
-				<button className="copyBtn" onClick={handleCopy}>
-					Copy
+		<div className="quizDiv">
+			<p id="resultHeader" className="my-10 text-3xl font-bold tracking-tight text-white-900 sm:text-4xl"></p>
+			<textarea id="resultText" value={resultText} onChange={handleChange} />
+			<div id="resultBtnDiv">
+				<button
+					id="copyBtn"
+					className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+					onClick={handleCopy}
+				>
+					Copy ⎘
 				</button>
-				<button className="regenBtn" onClick={handleRegenerate}>
-					Regenerate
+				<button
+					id="regenBtn"
+					className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+					onClick={handleRegenerate}
+				>
+					Regenerate ⟳ 
 				</button>
 			</div>
 		</div>

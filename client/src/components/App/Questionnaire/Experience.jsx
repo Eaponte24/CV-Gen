@@ -1,28 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { changeBackgroundColor } from '../../utils';
-
+import React, { useState, useEffect } from "react";
+import changeBackgroundColor from "../../../utils/changeBackgroundColor";
 
 const Experience = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
 
 	useEffect(() => {
-		const colors = [
-			"#FFC857",
-			"#E9724C",
-			"#C5283D",
-			"#481D24",
-			"#255C99",
-			"#2A9D8F",
-			"#F4A261",
-			"#E9C46A",
-			"#E76F51",
-			"#80B918",
-		];
-		changeBackgroundColor(colors);
+		changeBackgroundColor();
 	}, []);
 
-	const handleChange = (e) => {
-		setUserInput(e.target.value);
+	const handleKeyDown = (e) => {
+		if (e.key === "Enter") {
+			e.preventDefault();
+			handleSubmit(e);
+		}
 	};
 
 	const handleSubmit = (e) => {
@@ -33,19 +23,26 @@ const Experience = ({ onSubmit }) => {
 	};
 
 	return (
-		<div className="expDiv">
-			<h2 className="expHeader">
+		<div className="quizDiv">
+			<p
+				id="expHeader"
+				className="text-white-900 my-10 text-3xl font-bold tracking-tight sm:text-4xl"
+			>
 				In one sentence, describe your most relevent work experience.
-			</h2>
-			<form onSubmit={handleSubmit} className="expForm">
-				<textarea
-					className="expInput"
+			</p>
+			<form onSubmit={handleSubmit} id="expForm">
+				<input
+					id="expInput"
 					value={userInput}
-					onChange={handleChange}
+					onChange={(e) => setUserInput(e.target.value)}
+					onKeyDown={handleKeyDown}
 					placeholder="I've worked as a software developer for 2 years..."
 				/>
-				<button type="submit" className="expSubmitBtn">
-					Submit
+				<button
+					type="submit"
+					className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+				>
+					Enter ↵
 				</button>
 			</form>
 		</div>
