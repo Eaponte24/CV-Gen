@@ -29,6 +29,7 @@ const Result = ({ combinedInput, onRegenerate }) => {
 
 	return (
 		<div className="quizDiv">
+			<p id="resultHeader" className="my-10 text-3xl font-bold tracking-tight text-white-900 sm:text-4xl"></p>
 			<textarea id="resultText" value={resultText} onChange={handleChange} />
 			<div id="resultBtnDiv">
 				<button

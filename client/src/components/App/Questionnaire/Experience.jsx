@@ -24,9 +24,12 @@ const Experience = ({ onSubmit }) => {
 
 	return (
 		<div className="quizDiv">
-			<h2 id="expHeader">
+			<p
+				id="expHeader"
+				className="text-white-900 my-10 text-3xl font-bold tracking-tight sm:text-4xl"
+			>
 				In one sentence, describe your most relevent work experience.
-			</h2>
+			</p>
 			<form onSubmit={handleSubmit} id="expForm">
 				<input
 					id="expInput"

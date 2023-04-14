@@ -34,11 +34,16 @@ const Listing = ({ onSubmit }) => {
 
 	return (
 		<div className="quizDiv">
-			<h2 id="listHeader">Paste the job listing below.</h2>
-			<h4 id="listSubHeader">
+			<p
+				id="listHeader"
+				className="text-white-900 my-10 text-3xl font-bold tracking-tight sm:text-4xl"
+			>
+				Paste the job listing below.
+			</p>
+			<p id="listSubHeader">
 				Please include the job title and the job description. Exlcude the
 				benefits, and other information.
-			</h4>
+			</p>
 			<form onSubmit={handleSubmit} id="listForm">
 				<textarea
 					id="listInput"
@@ -53,7 +58,7 @@ const Listing = ({ onSubmit }) => {
 				<button
 					type="submit"
 					id="listSubmitBtn"
-					className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+					className="rounded-md bg-navy-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 				>
 					Enter ↵
 				</button>
