@@ -1,34 +1,31 @@
-const { OpenAIApi } = require('openai');
-const { v4: uuidv4 } = require('uuid');
+const { Configuration, OpenAIApi } = require("openai");
+require("dotenv").config();
 
-const openai = new OpenAIApi(process.env.OPENAI_API_KEY);
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
 
 const resolvers = {
   Query: {
-    generateResponse: async (_, { prompt, length }) => {
-      const response = await openai.complete({
-        engine: 'davinci',
-        prompt,
-        maxTokens: length,
-      });
-      return response.choices[0].text;
+    retrieveModel: async (_, { modelName }) => {
+      const response = await openai.retrieveModel(modelName);
+      return response;
     },
   },
-
   Mutation: {
-    sendPrompt: async (_, { prompt }) => {
-      const id = uuidv4();
-      const response = await openai.createPrompt({
+    generateResponse: async (_, { prompt }) => {
+      const response = await openai.createCompletion({
+        model: "text-davinci-003",
         prompt,
-        id,
+        max_tokens: 7,
       });
-      return {
-        id,
-        prompt,
-      };
+      const responseData = response.data.choices[0].text.trim();
+
+      return responseData;
     },
   },
-  
 };
 
 module.exports = resolvers;
