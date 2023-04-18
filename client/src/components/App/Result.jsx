@@ -29,10 +29,9 @@ const Result = ({ combinedInput, onRegenerate }) => {
 
 	const autoResize = (event) => {
 		const target = event.target;
-		target.style.height = 'inherit'; // Reset height to recalculate the correct height
+		target.style.height = "inherit"; // Reset height to recalculate the correct height
 		target.style.height = `${target.scrollHeight}px`; // Set the height based on scroll height
-	  };
-	  
+	};
 
 	return (
 		<div className="quizDiv">
@@ -42,11 +41,11 @@ const Result = ({ combinedInput, onRegenerate }) => {
 			></p>
 			<textarea
 				id="resultText"
-				value={userInput}
+				value={resultText}
 				onChange={(e) => {
-					setUserInput(e.target.value);
+					setResultText(e.target.value);
 					autoResize(e);
-				}}
+				  }}				  
 			/>
 			<div id="resultBtnDiv">
 				<button
