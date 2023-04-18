@@ -14,7 +14,7 @@ const resultMessages = [
 	"You can do this.",
 	"Here's your cover letter.",
 	"Don't tell them how you came up with this.",
-	// add to/edit/remove any of these messages
+	// add to/edit/remove any of these messages as you see fit
 ];
 
 function getRandomMessage() {
@@ -44,10 +44,6 @@ const Result = ({ combinedInput, onRegenerate }) => {
 		// allow the user to edit the cover letter
 		setResultText(e.target.value);
 	};
-
-	useEffect(() => {
-		changeBackgroundColor();
-	}, []);
 
 	const handleCopy = async () => {
 		try {
