@@ -12,7 +12,7 @@ const QuestionApp = () => {
 		// collect, format, and store the user input
 		setCombinedInput((prevInput) => `${prevInput} ${userInput}`);
 		setCurrentStep((prevStep) => prevStep + 1);
-	}; 
+	};
 
 	const handleResultSubmit = (userInput) => {
 		handleUserInputSubmit(userInput);
@@ -27,12 +27,31 @@ const QuestionApp = () => {
 
 	return (
 		<div className="App">
-			{currentStep === 1 && <Adjective onSubmit={handleUserInputSubmit} />}
-			{currentStep === 2 && <Experience onSubmit={handleUserInputSubmit} />}
-			{currentStep === 3 && <Listing onSubmit={handleResultSubmit} />}
-			{currentStep === 4 && (
-				<Result combinedInput={combinedInput} onRegenerate={handleRegenerate} />
-			)}
+			<TransitionGroup>
+				{questionStep === 1 && (
+					<CSSTransition key="adjective" timeout={300} classNames="fade">
+						<Adjective onSubmit={handleSubmit} />
+					</CSSTransition>
+				)}
+				{questionStep === 2 && (
+					<CSSTransition key="experience" timeout={300} classNames="fade">
+						<Experience onSubmit={handleSubmit} />
+					</CSSTransition>
+				)}
+				{questionStep === 3 && (
+					<CSSTransition key="listing" timeout={300} classNames="fade">
+						<Listing onSubmit={handleSubmit} />
+					</CSSTransition>
+				)}
+				{currentStep === 4 && (
+					<CSSTransition key="result" timeout={300} classNames="fade">
+						<Result
+							combinedInput={combinedInput}
+							onRegenerate={handleRegenerate}
+						/>
+					</CSSTransition>
+				)}
+			</TransitionGroup>
 		</div>
 	);
 };
