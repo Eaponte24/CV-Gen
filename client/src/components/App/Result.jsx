@@ -76,7 +76,7 @@ const Result = ({ combinedInput, onRegenerate }) => {
 				{resultHeader}
 			</p>
 			<p className="my-7">
-				Don't forget to review and edit your cover letter <b>before</b> copying it.
+				Please <b>review & edit</b> your cover letter before copying it.
 			</p>
 			<textarea
 				id="resultText"
