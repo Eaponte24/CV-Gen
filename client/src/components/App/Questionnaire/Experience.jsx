@@ -5,10 +5,12 @@ const Experience = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
 
 	useEffect(() => {
+		// change the background color
 		changeBackgroundColor();
 	}, []);
 
 	const handleKeyDown = (e) => {
+		// allow the user to submit the form by pressing the enter key
 		if (e.key === "Enter") {
 			e.preventDefault();
 			handleSubmit(e);
@@ -16,6 +18,7 @@ const Experience = ({ onSubmit }) => {
 	};
 
 	const handleSubmit = (e) => {
+		// collect, format, and store the user input
 		e.preventDefault();
 		const formattedInput = `Mention this recent exeperience: ${userInput}
      `;
@@ -25,7 +28,6 @@ const Experience = ({ onSubmit }) => {
 	return (
 		<div className="quizDiv">
 			<p
-				id="expHeader"
 				className="text-white-900 my-10 text-3xl font-bold tracking-tight sm:text-4xl"
 			>
 				In one sentence, describe your most relevent work experience.

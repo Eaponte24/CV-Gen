@@ -4,29 +4,29 @@ import changeBackgroundColor from "../../../utils/changeBackgroundColor";
 const Listing = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
 
-	// Change the background color on render
 	useEffect(() => {
+		// change the background color
 		changeBackgroundColor();
 	}, []);
 
-	// Pass the formatted input to the parent component
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		const formattedInput = `This is the job listing: ${userInput}
-	   `;
-		onSubmit(formattedInput);
-	};
-
-	// Watch for enter keydown and submit
 	const handleKeyDown = (e) => {
+		// allow the user to submit the form by pressing the enter key
 		if (e.key === "Enter") {
 			e.preventDefault();
 			handleSubmit(e);
 		}
 	};
 
-	// Reset height to recalculate the correct height of the textarea
+	const handleSubmit = (e) => {
+		// collect, format, and store the user input
+		e.preventDefault();
+		const formattedInput = `This is the job listing: ${userInput}
+	   `;
+		onSubmit(formattedInput);
+	};
+
 	const autoResize = (event) => {
+		// auto resize the textarea
 		const target = event.target;
 		target.style.height = "inherit";
 		target.style.height = `${target.scrollHeight}px`;

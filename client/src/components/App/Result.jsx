@@ -14,11 +14,13 @@ const resultMessages = [
 	"You can do this.",
 	"Here's your cover letter.",
 	"Don't tell them how you came up with this.",
+	// add to/edit/remove any of these messages
 ];
 
 function getRandomMessage() {
 	const randomIndex = Math.floor(Math.random() * resultMessages.length);
 	return resultMessages[randomIndex];
+	// greet the user with a random message
 }
 
 const Result = ({ combinedInput, onRegenerate }) => {
@@ -29,14 +31,17 @@ const Result = ({ combinedInput, onRegenerate }) => {
 	);
 
 	useEffect(() => {
+		// change the background color
 		changeBackgroundColor();
 	}, []);
 
 	const handleRegenerate = () => {
+		// allow the user to regenerate the cover letter
 		onRegenerate();
 	};
 
 	const handleChange = (e) => {
+		// allow the user to edit the cover letter
 		setResultText(e.target.value);
 	};
 
@@ -46,11 +51,12 @@ const Result = ({ combinedInput, onRegenerate }) => {
 
 	const handleCopy = async () => {
 		try {
+			// Copy the text to the clipboard
 			await navigator.clipboard.writeText(resultText);
 			console.log("Copied to clipboard")
-			// Change the icon to the ClipboardCheckIcon
+			// change the icon to the ClipboardCheckIcon
 			setCopyIcon(<ClipboardDocumentCheckIcon className="h-5 w-5" />);
-			// Change the icon back to the ClipboardIcon after a short delay
+			// change the icon back to the ClipboardIcon after a short delay
 			setTimeout(() => {
 				setCopyIcon(<ClipboardDocumentIcon className="h-5 w-5" />);
 			}, 1000);
@@ -61,17 +67,20 @@ const Result = ({ combinedInput, onRegenerate }) => {
 
 	const autoResize = (event) => {
 		const target = event.target;
-		target.style.height = "inherit"; // Reset height to recalculate the correct height
-		target.style.height = `${target.scrollHeight}px`; // Set the height based on scroll height
+		target.style.height = "inherit"; // reset height to recalculate the correct height
+		target.style.height = `${target.scrollHeight}px`; // set the height based on scroll height
 	};
 
 	return (
 		<div className="quizDiv">
 			<p
 				id="resultHeader"
-				className="text-white-900 my-10 text-3xl font-bold tracking-tight sm:text-4xl"
+				className="text-white-900 text-3xl font-bold tracking-tight sm:text-4xl"
 			>
 				{resultHeader}
+			</p>
+			<p className="my-7">
+				Don't forget to review and edit your cover letter <b>before</b> copying it.
 			</p>
 			<textarea
 				id="resultText"
@@ -81,7 +90,7 @@ const Result = ({ combinedInput, onRegenerate }) => {
 					autoResize(e);
 				}}
 			/>
-			<div className="resultContainer">
+			<div className="resultContainer my-5">
 				<button
 					id="copyBtn"
 					className="resultBtn mr-3 rounded-md bg-white px-2.5 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"

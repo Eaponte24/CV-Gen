@@ -79,7 +79,7 @@ textarea {
 	width: 80vw;
 	height: 60px;
 	font-size: 30pt;
-	border-bottom: white 2px solid;
+	border-bottom: rgba(255, 255, 255, 0.5) 2px solid;
 }
 
 .submitBtn, .resultBtn {
@@ -99,7 +99,5 @@ input::placeholder {
 	min-height: 400px;
 	border-radius: 10px;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 50px;
-	padding: 20px;
-	opacity: 90%;
-	
+	padding: 20px;	
 }
