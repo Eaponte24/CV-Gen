@@ -34,19 +34,17 @@ const Listing = ({ onSubmit }) => {
 
 	return (
 		<div className="quizDiv">
-			<p
-				id="listHeader"
-				className="text-white-900 my-10 text-3xl font-bold tracking-tight sm:text-4xl"
-			>
+			<p className="text-white-900 text-3xl font-bold tracking-tight sm:text-4xl">
 				Paste the job listing below.
 			</p>
-			<p id="listSubHeader">
-				Please include the job title and the job description. Exlcude the
+			<p className="my-7">
+				Please <b>include</b> the title and the job description. <b>Exlcude</b> the
 				benefits, and other information.
 			</p>
 			<form onSubmit={handleSubmit} id="listForm">
 				<textarea
 					id="listInput"
+					className="max-h-[60vh] overflow-auto"
 					value={userInput}
 					onChange={(e) => {
 						setUserInput(e.target.value);
@@ -57,13 +55,24 @@ const Listing = ({ onSubmit }) => {
 					autoFocus
 				/>
 				<div className="submitContainer">
-					<button
+				<button
 						type="submit"
 						className="submitBtn rounded-md bg-white px-2.5 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"
 					>
-						Okay ✓
+						Okay <svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							className="h-5 w-5"
+						>
+							<path
+								fillRule="evenodd"
+								d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+								clipRule="evenodd"
+							/>
+						</svg>
 					</button>
-					<p className="ml-3 translate-y-1.5 text-sm opacity-85">
+					<p className="opacity-85 ml-3 translate-y-1.5 text-sm">
 						press <b>Enter ↵</b>
 					</p>
 				</div>
