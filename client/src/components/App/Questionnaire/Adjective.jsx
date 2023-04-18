@@ -37,6 +37,7 @@ const Adjective = ({ onSubmit }) => {
 					onChange={(e) => setUserInput(e.target.value)}
 					onKeyDown={handleKeyDown}
 					placeholder="Motivated, creative, outgoing..."
+					autoFocus
 				/>
 				<div className="submitContainer">
 					<button

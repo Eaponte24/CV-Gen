@@ -37,6 +37,7 @@ const Experience = ({ onSubmit }) => {
 					onChange={(e) => setUserInput(e.target.value)}
 					onKeyDown={handleKeyDown}
 					placeholder="I've worked as a software developer for 2 years..."
+					autoFocus
 				/>
 				<div className="submitContainer">
 					<button

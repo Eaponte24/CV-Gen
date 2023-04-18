@@ -54,6 +54,7 @@ const Listing = ({ onSubmit }) => {
 					}}
 					onKeyDown={handleKeyDown}
 					placeholder="Paste here..."
+					autoFocus
 				/>
 				<div className="submitContainer">
 					<button
