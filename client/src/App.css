@@ -95,6 +95,7 @@ input::placeholder {
 
 #resultText, #listInput {
 	width: 80vw;
+	max-width: 1200px;
 	min-height: 400px;
 	border-radius: 10px;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 50px;
