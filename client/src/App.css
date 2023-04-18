@@ -67,7 +67,7 @@ textarea {
 	margin-top: 10px;
 }
 
-.submitContainer {
+.submitContainer, .resultContainer {
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -83,8 +83,14 @@ textarea {
 	border-bottom: white 2px solid;
 }
 
+.submitBtn, .resultBtn {
+	display: flex !important;
+	align-items: center ;
+	justify-content: center;
+	gap: 4px;}
+
 input::placeholder {
-	font-size: 30pt;
+	font-size: 25pt;
 	color: rgba(255, 255, 255, 0.5) !important;
 }
 

@@ -42,11 +42,11 @@ const Experience = ({ onSubmit }) => {
 				<div className="submitContainer">
 					<button
 						type="submit"
-						className="rounded-md bg-indigo-600 px-3.5 py-1 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+						className="submitBtn rounded-md bg-white px-2.5 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"
 					>
 						Okay ✓
 					</button>
-					<p className="ml-3 translate-y-1.5">
+					<p className="ml-3 translate-y-1.5 text-sm opacity-85">
 						press <b>Enter ↵</b>
 					</p>
 				</div>

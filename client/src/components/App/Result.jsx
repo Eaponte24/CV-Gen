@@ -47,17 +47,18 @@ const Result = ({ combinedInput, onRegenerate }) => {
 					autoResize(e);
 				  }}				  
 			/>
-			<div id="resultBtnDiv">
+			<div className="resultContainer">
 				<button
 					id="copyBtn"
-					className="rounded-md bg-gray-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200"
+					className="resultBtn mr-3 rounded-md bg-white px-2.5 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"
 					onClick={handleCopy}
 				>
 					Copy ⎘
 				</button>
+				
 				<button
 					id="regenBtn"
-					className="rounded-md bg-gray-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200"
+					className="resultBtn rounded-md bg-white px-2.5 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"
 					onClick={handleRegenerate}
 				>
 					Regenerate ⟳
