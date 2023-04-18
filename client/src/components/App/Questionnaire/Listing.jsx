@@ -55,13 +55,17 @@ const Listing = ({ onSubmit }) => {
 					onKeyDown={handleKeyDown}
 					placeholder="Paste here..."
 				/>
-				<button
-					type="submit"
-					id="listSubmitBtn"
-					className="rounded-md bg-navy-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-				>
-					Enter ↵
-				</button>
+				<div className="submitContainer">
+					<button
+						type="submit"
+						className="rounded-md bg-indigo-600 px-3.5 py-1 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+					>
+						Okay ✓
+					</button>
+					<p className="ml-3 translate-y-1.5">
+						press <b>Enter ↵</b>
+					</p>
+				</div>
 			</form>
 		</div>
 	);
