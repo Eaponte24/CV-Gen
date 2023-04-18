@@ -27,10 +27,27 @@ const Result = ({ combinedInput, onRegenerate }) => {
 		setResultText(e.target.value);
 	};
 
+	const autoResize = (event) => {
+		const target = event.target;
+		target.style.height = 'inherit'; // Reset height to recalculate the correct height
+		target.style.height = `${target.scrollHeight}px`; // Set the height based on scroll height
+	  };
+	  
+
 	return (
 		<div className="quizDiv">
-			<p id="resultHeader" className="my-10 text-3xl font-bold tracking-tight text-white-900 sm:text-4xl"></p>
-			<textarea id="resultText" value={resultText} onChange={handleChange} />
+			<p
+				id="resultHeader"
+				className="text-white-900 my-10 text-3xl font-bold tracking-tight sm:text-4xl"
+			></p>
+			<textarea
+				id="resultText"
+				value={userInput}
+				onChange={(e) => {
+					setUserInput(e.target.value);
+					autoResize(e);
+				}}
+			/>
 			<div id="resultBtnDiv">
 				<button
 					id="copyBtn"
@@ -44,7 +61,7 @@ const Result = ({ combinedInput, onRegenerate }) => {
 					className="rounded-md bg-gray-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200"
 					onClick={handleRegenerate}
 				>
-					Regenerate ⟳ 
+					Regenerate ⟳
 				</button>
 			</div>
 		</div>
