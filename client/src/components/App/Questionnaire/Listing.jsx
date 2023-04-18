@@ -38,8 +38,8 @@ const Listing = ({ onSubmit }) => {
 				Paste the job listing below.
 			</p>
 			<p className="my-7">
-				Please <b>include</b> the title and the job description. <b>Exlcude</b> the
-				benefits, and other information.
+				Please <b>include</b> the title, job description and responsibilities. <b>Exclude</b> the
+				salary, benefits and other information.
 			</p>
 			<form onSubmit={handleSubmit} id="listForm">
 				<textarea
