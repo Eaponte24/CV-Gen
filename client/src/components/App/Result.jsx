@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import changeBackgroundColor from "../../utils/changeBackgroundColor";
-import { ClipboardDocumentIcon, ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
+import {
+	ClipboardDocumentIcon,
+	ClipboardDocumentCheckIcon,
+} from "@heroicons/react/24/outline";
 // import DownloadButton from "../DownloadButton";
 
 const resultMessages = [
@@ -25,7 +28,7 @@ function getRandomMessage() {
 
 const Result = ({ combinedInput, onRegenerate }) => {
 	const [resultText, setResultText] = useState(combinedInput);
-	const [resultHeader, setResultHeader] = useState(getRandomMessage());
+	const [resultHeading, setResultHeading] = useState(getRandomMessage());
 	const [copyIcon, setCopyIcon] = useState(
 		<ClipboardDocumentIcon className="h-5 w-5" />
 	);
@@ -33,7 +36,13 @@ const Result = ({ combinedInput, onRegenerate }) => {
 	useEffect(() => {
 		// change the background color
 		changeBackgroundColor();
-	}, []);
+		
+		// resize the textarea on page load
+		const textarea = document.getElementById("resultText");
+		if (textarea) {
+		  autoResize({ target: textarea });
+		}
+	  }, []);
 
 	const handleRegenerate = () => {
 		// allow the user to regenerate the cover letter
@@ -49,7 +58,7 @@ const Result = ({ combinedInput, onRegenerate }) => {
 		try {
 			// Copy the text to the clipboard
 			await navigator.clipboard.writeText(resultText);
-			console.log("Copied to clipboard")
+			console.log("Copied to clipboard");
 			// change the icon to the ClipboardCheckIcon
 			setCopyIcon(<ClipboardDocumentCheckIcon className="h-5 w-5" />);
 			// change the icon back to the ClipboardIcon after a short delay
@@ -61,19 +70,20 @@ const Result = ({ combinedInput, onRegenerate }) => {
 		}
 	};
 
-	const autoResize = (event) => {
-		const target = event.target;
-		target.style.height = "inherit"; // reset height to recalculate the correct height
-		target.style.height = `${target.scrollHeight}px`; // set the height based on scroll height
+	const autoResize = (e) => {
+		// auto resize the textarea
+		const target = e.target;
+		target.style.height = "inherit";
+		target.style.height = `${target.scrollHeight}px`;
 	};
 
 	return (
 		<div className="quizDiv">
 			<p
-				id="resultHeader"
+				id="resultHeading"
 				className="text-white-900 text-3xl font-bold tracking-tight sm:text-4xl"
 			>
-				{resultHeader}
+				{resultHeading}
 			</p>
 			<p className="my-7">
 				Please <b>review & edit</b> your cover letter before copying it.

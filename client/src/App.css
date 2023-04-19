@@ -61,10 +61,6 @@ textarea {
 
 /* Quiz components custom CSS */
 
-::-webkit-scrollbar{
-    display: none !important;
-  }
-
 .quizDiv textarea,
 .quizDiv button {
 	display: block;
@@ -110,4 +106,8 @@ input::placeholder {
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 50px;
 	padding: 20px;
 	resize: none;
+}
+
+#listInput::-webkit-scrollbar {
+	display: none !important;
 }
