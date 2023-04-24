@@ -9,12 +9,6 @@ const Listing = ({ onSubmit }) => {
 		changeBackgroundColor();
 	}, []);
 
-	// Pass the formatted input to the parent component
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		const formattedInput = `This is the job listing: ${userInput}`;
-		onSubmit(formattedInput);
-	};
 
 	// Watch for enter keydown and submit
 	const handleKeyDown = (e) => {
@@ -28,8 +22,7 @@ const Listing = ({ onSubmit }) => {
 	const handleSubmit = (e) => {
 		// collect, format, and store the user input
 		e.preventDefault();
-		const formattedInput = `This is the job listing: ${userInput}
-	   `;
+		const formattedInput = `This is the job listing: ${userInput}`;
 		onSubmit(formattedInput);
 	};
 
