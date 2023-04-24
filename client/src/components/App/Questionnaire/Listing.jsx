@@ -12,8 +12,7 @@ const Listing = ({ onSubmit }) => {
 	// Pass the formatted input to the parent component
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const formattedInput = `This is the job listing: ${userInput}
-	   `;
+		const formattedInput = `This is the job listing: ${userInput}`;
 		onSubmit(formattedInput);
 	};
 

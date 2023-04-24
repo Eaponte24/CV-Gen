@@ -17,8 +17,7 @@ const Adjective = ({ onSubmit }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const formattedInput = `Please generate a one paragraph cover letter. Convey that I am ${userInput}.
-     `;
+		const formattedInput = `Please generate a one paragraph cover letter. Convey that I am ${userInput}.`;
 		onSubmit(formattedInput);
 	};
 
