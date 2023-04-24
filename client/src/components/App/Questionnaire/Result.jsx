@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import changeBackgroundColor from "../../utils/changeBackgroundColor";
+import changeBackgroundColor from "../../../utils/changeBackgroundColor";
 import {
 	ClipboardDocumentIcon,
 	ClipboardDocumentCheckIcon,
 } from "@heroicons/react/24/outline";
 // import DownloadButton from "../DownloadButton";
+
 
 const resultMessages = [
 	"Good luck.",
