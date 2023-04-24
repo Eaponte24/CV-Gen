@@ -6,11 +6,10 @@ import {
 } from "@heroicons/react/24/outline";
 // import DownloadButton from "../DownloadButton";
 
-
 const resultMessages = [
 	"Good luck.",
 	"Break a Leg.",
-	"Your CV is on its way.",
+	"Your CV has arrived.",
 	"Your CV is ready.",
 	"You'll ace the interview.",
 	"Best of luck.",
@@ -27,27 +26,41 @@ function getRandomMessage() {
 	// greet the user with a random message
 }
 
-const Result = ({ combinedInput, onRegenerate }) => {
-	const [resultText, setResultText] = useState(combinedInput);
+const Result = ({ response, onRegenerate }) => {
+	const [resultText, setResultText] = useState("");
 	const [resultHeading, setResultHeading] = useState(getRandomMessage());
 	const [copyIcon, setCopyIcon] = useState(
 		<ClipboardDocumentIcon className="h-5 w-5" />
 	);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		if (response) {
+			// Update the resultText state when the response prop changes
+			setResultText(response);
+			setLoading(false);
+		}
+	}, [response]);
 
 	useEffect(() => {
 		// change the background color
 		changeBackgroundColor();
-		
+
 		// resize the textarea on page load
 		const textarea = document.getElementById("resultText");
 		if (textarea) {
-		  autoResize({ target: textarea });
+			autoResize({ target: textarea });
 		}
-	  }, []);
+	}, []);
 
 	const handleRegenerate = () => {
 		// allow the user to regenerate the cover letter
 		onRegenerate();
+	};
+
+	const handleCancel = () => {
+		// allow the user to cancel the cover letter and refresh the page
+		window.location.reload();
 	};
 
 	const handleChange = (e) => {
@@ -78,6 +91,46 @@ const Result = ({ combinedInput, onRegenerate }) => {
 		target.style.height = `${target.scrollHeight}px`;
 	};
 
+	if (loading) {
+		return (
+			<div className="quizDiv">
+				<p
+					id="resultHeading"
+					className="text-white-900 text-3xl font-bold tracking-tight sm:text-4xl"
+				>
+					Your CV is on it's way.
+				</p>
+				<p className="mt-7 mb-10">
+					Based on demand, it may take a few minutes to generate your CV.
+				</p>
+				<textarea readOnly={true} id="resultText" value="Thinking..." />
+				<div className="resultContainer my-5">
+					<button
+						id="regenBtn"
+						className="resultBtn rounded-md bg-white px-2.5 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"
+						onClick={handleCancel}
+					>
+						Regenerate{" "}
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							strokeWidth={1.5}
+							stroke="currentColor"
+							className="h-6 w-6"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+							/>
+						</svg>
+					</button>
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<div className="quizDiv">
 			<p
@@ -86,14 +139,15 @@ const Result = ({ combinedInput, onRegenerate }) => {
 			>
 				{resultHeading}
 			</p>
-			<p className="my-7">
-			💡<b>Tip:</b> you can review & edit your cover letter below before copying it.
+			<p className="mt-7 mb-10">
+				💡<b>Tip:</b> you can review & edit your cover letter below before
+				copying it.
 			</p>
 			<textarea
 				id="resultText"
 				value={resultText}
 				onChange={(e) => {
-					setResultText(e.target.value);
+					handleTextChange(e);
 					autoResize(e);
 				}}
 			/>
