@@ -4,8 +4,8 @@ import changeBackgroundColor from "../../../utils/changeBackgroundColor";
 const Listing = ({ onSubmit }) => {
 	const [userInput, setUserInput] = useState("");
 
-	// Change the background color on render
 	useEffect(() => {
+		// change the background color
 		changeBackgroundColor();
 	}, []);
 
@@ -18,14 +18,23 @@ const Listing = ({ onSubmit }) => {
 
 	// Watch for enter keydown and submit
 	const handleKeyDown = (e) => {
+		// allow the user to submit the form by pressing the enter key
 		if (e.key === "Enter") {
 			e.preventDefault();
 			handleSubmit(e);
 		}
 	};
 
-	// Reset height to recalculate the correct height of the textarea
+	const handleSubmit = (e) => {
+		// collect, format, and store the user input
+		e.preventDefault();
+		const formattedInput = `This is the job listing: ${userInput}
+	   `;
+		onSubmit(formattedInput);
+	};
+
 	const autoResize = (event) => {
+		// auto resize the textarea
 		const target = event.target;
 		target.style.height = "inherit";
 		target.style.height = `${target.scrollHeight}px`;
@@ -33,19 +42,17 @@ const Listing = ({ onSubmit }) => {
 
 	return (
 		<div className="quizDiv">
-			<p
-				id="listHeader"
-				className="text-white-900 my-10 text-3xl font-bold tracking-tight sm:text-4xl"
-			>
+			<p className="text-white-900 text-3xl font-bold tracking-tight sm:text-4xl">
 				Paste the job listing below.
 			</p>
-			<p id="listSubHeader">
-				Please include the job title and the job description. Exlcude the
-				benefits, and other information.
+			<p className="my-7">
+				Please <b>include</b> the title, job description and responsibilities. Try to <b>Exclude</b> the
+				salary, benefits and other information.
 			</p>
 			<form onSubmit={handleSubmit} id="listForm">
 				<textarea
 					id="listInput"
+					className="max-h-[60vh] overflow-auto"
 					value={userInput}
 					onChange={(e) => {
 						setUserInput(e.target.value);
@@ -53,14 +60,30 @@ const Listing = ({ onSubmit }) => {
 					}}
 					onKeyDown={handleKeyDown}
 					placeholder="Paste here..."
+					autoFocus
 				/>
+				<div className="submitContainer">
 				<button
-					type="submit"
-					id="listSubmitBtn"
-					className="rounded-md bg-navy-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-				>
-					Enter ↵
-				</button>
+						type="submit"
+						className="submitBtn rounded-md bg-white px-2.5 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"
+					>
+						Okay <svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							className="h-5 w-5"
+						>
+							<path
+								fillRule="evenodd"
+								d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+								clipRule="evenodd"
+							/>
+						</svg>
+					</button>
+					<p className="opacity-85 ml-3 translate-y-1.5 text-sm">
+						press <b>Enter ↵</b>
+					</p>
+				</div>
 			</form>
 		</div>
 	);
