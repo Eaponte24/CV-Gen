@@ -9,20 +9,10 @@ const Listing = ({ onSubmit }) => {
 		changeBackgroundColor();
 	}, []);
 
-	// Watch for enter keydown and submit
-	const handleKeyDown = (e) => {
-		// allow the user to submit the form by pressing the enter key
-		if (e.key === "Enter") {
-			e.preventDefault();
-			handleSubmit(e);
-		}
-	};
-
 	const handleSubmit = (e) => {
 		// collect, format, and store the user input
 		e.preventDefault();
-		const formattedInput = `This is the job listing: ${userInput}
-	   `;
+		const formattedInput = `This is the job listing: ${userInput}`;
 		onSubmit(formattedInput);
 	};
 
