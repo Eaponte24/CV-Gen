@@ -26,20 +26,38 @@ function getRandomMessage() {
 	// greet the user with a random message
 }
 
-const Result = ({ response, onRegenerate }) => {
+const writeResponseStylized = (response) => {
+	let responseWords = response.split(" ");
+	let responseIndex = 0;
+
+	const writeWord = () => {
+		if (responseIndex < responseWords.length) {
+			setResultText(
+				(prevText) => prevText + " " + responseWords[responseIndex]
+			);
+			responseIndex++;
+			setTimeout(writeWord, 100);
+		}
+	};
+	writeWord();
+};
+
+const Result = ({ combinedInput, onRegenerate, response }) => {
 	const [resultText, setResultText] = useState("");
 	const [resultHeading, setResultHeading] = useState(getRandomMessage());
-	const [copyIcon, setCopyIcon] = useState(
-		<ClipboardDocumentIcon className="h-5 w-5" />
-	);
-	const [loading, setLoading] = useState(true);
+	const [copyIcon, setCopyIcon] = useState(<ClipboardDocumentIcon className="h-5 w-5" />);
 
-	useEffect(() => {
+	/* 	useEffect(() => {
 		if (response) {
 			// Update the resultText state when the response prop changes
 			setResultText(response);
 			setLoading(false);
 		}
+	}, [response]);
+ */
+	useEffect(() => {
+		// Update the resultText state when the response prop changes
+		writeResponseStylized(response);
 	}, [response]);
 
 	useEffect(() => {
@@ -56,11 +74,6 @@ const Result = ({ response, onRegenerate }) => {
 	const handleRegenerate = () => {
 		// allow the user to regenerate the cover letter
 		onRegenerate();
-	};
-
-	const handleCancel = () => {
-		// allow the user to cancel the cover letter and refresh the page
-		window.location.reload();
 	};
 
 	const handleChange = (e) => {
@@ -91,7 +104,7 @@ const Result = ({ response, onRegenerate }) => {
 		target.style.height = `${target.scrollHeight}px`;
 	};
 
-	if (loading) {
+	/* 	if (loading) {
 		return (
 			<div className="quizDiv">
 				<p
@@ -106,11 +119,11 @@ const Result = ({ response, onRegenerate }) => {
 				<textarea readOnly={true} id="resultText" value="Thinking..." />
 				<div className="resultContainer my-5">
 					<button
-						id="regenBtn"
+						id="cancelBtn"
 						className="resultBtn rounded-md bg-white px-2.5 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"
 						onClick={handleCancel}
 					>
-						Regenerate{" "}
+						Try Again
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -129,7 +142,7 @@ const Result = ({ response, onRegenerate }) => {
 				</div>
 			</div>
 		);
-	}
+	} */
 
 	return (
 		<div className="quizDiv">
@@ -145,9 +158,10 @@ const Result = ({ response, onRegenerate }) => {
 			</p>
 			<textarea
 				id="resultText"
+				placeholder="Thinking..."
 				value={resultText}
 				onChange={(e) => {
-					handleTextChange(e);
+					handleChange(e);
 					autoResize(e);
 				}}
 			/>

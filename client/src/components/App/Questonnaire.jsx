@@ -12,16 +12,16 @@ const QuestionApp = () => {
 		// collect, format, and store the user input
 		setCombinedInput((prevInput) => `${prevInput} ${userInput}`);
 		setCurrentStep((prevStep) => prevStep + 1);
-	}; 
+	};
 
 	const handleResultSubmit = (userInput) => {
 		handleUserInputSubmit(userInput);
-		console.log(combinedInput);
+		console.log("Generate with combinedInput:" + combinedInput);
 		// TODO: make the API Call to ChatGPT with the combinedInput
 	};
 
 	const handleRegenerate = () => {
-		console.log(combinedInput);
+		console.log("Regenerate with combinedInput:" + combinedInput);
 		// TODO: make the API call to ChatGPT with the combinedInput again, and update the result page
 	};
 
