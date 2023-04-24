@@ -9,19 +9,20 @@ const QuestionApp = () => {
 	const [combinedInput, setCombinedInput] = useState("");
 
 	const handleUserInputSubmit = (userInput) => {
+		// collect, format, and store the user input
 		setCombinedInput((prevInput) => `${prevInput} ${userInput}`);
 		setCurrentStep((prevStep) => prevStep + 1);
-	};
+	}; 
 
 	const handleResultSubmit = (userInput) => {
 		handleUserInputSubmit(userInput);
 		console.log(combinedInput);
-		// Make the API Call to ChatGPT with the combinedInput
+		// TODO: make the API Call to ChatGPT with the combinedInput
 	};
 
 	const handleRegenerate = () => {
 		console.log(combinedInput);
-		// Make the API call to ChatGPT with the combinedInput again, and update the result page
+		// TODO: make the API call to ChatGPT with the combinedInput again, and update the result page
 	};
 
 	return (
