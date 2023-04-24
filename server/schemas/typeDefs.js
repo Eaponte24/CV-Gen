@@ -39,7 +39,7 @@ type Query {
 }
 
 type Mutation {
-  generateResponse(prompt: String!, model: String!, maxTokens: Int!): String!
+  generateResponse(prompt: String!, model: String!, max_tokens: Int!): String!
 }
 `;
 
