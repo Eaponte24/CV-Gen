@@ -9,6 +9,14 @@ const Listing = ({ onSubmit }) => {
 		changeBackgroundColor();
 	}, []);
 
+	const handleKeyDown = (e) => {
+		// allow the user to submit the form by pressing the enter key
+		if (e.key === "Enter") {
+			e.preventDefault();
+			handleSubmit(e);
+		}
+	};
+
 	const handleSubmit = (e) => {
 		// collect, format, and store the user input
 		e.preventDefault();
