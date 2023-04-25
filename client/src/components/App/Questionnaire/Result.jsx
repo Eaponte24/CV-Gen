@@ -54,12 +54,12 @@ const Result = ({ combinedInput, onRegenerate, response }) => {
 			setLoading(false);
 		}
 	}, [response]);
- */
+
 	useEffect(() => {
 		// Update the resultText state when the response prop changes
 		writeResponseStylized(response);
 	}, [response]);
-
+*/
 	useEffect(() => {
 		// change the background color
 		changeBackgroundColor();
