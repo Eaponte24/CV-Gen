@@ -87,6 +87,9 @@ const Result = ({ generatedResponse, onRegenerate }) => {
       >
         {resultHeading}
       </p>
+			<p className="my-7">
+			💡<b>Tip:</b> you can review & edit your cover letter below before copying it.
+			</p>
       <textarea
         id="resultText"
         className="quizTextarea"
