@@ -87,7 +87,7 @@ const Result = ({ combinedInput, onRegenerate }) => {
 				{resultHeading}
 			</p>
 			<p className="my-7">
-				Please <b>review & edit</b> your cover letter before copying it.
+			💡<b>Tip:</b> you can review & edit your cover letter below before copying it.
 			</p>
 			<textarea
 				id="resultText"
