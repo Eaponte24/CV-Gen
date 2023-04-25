@@ -16,7 +16,7 @@ const QuestionApp = () => {
 
   useEffect(() => {
     if (data) {
-      console.log("data = ", data);
+      console.log("data: ", data);
       setGeneratedResponse(data.generateResponse);
     }
   }, [data]);
@@ -30,7 +30,6 @@ const QuestionApp = () => {
   const handleResultSubmit = async (userInput) => {
     const updatedInput = `${combinedInput} ${userInput}`;
     handleUserInputSubmit(userInput);
-    console.log("user Input = ", userInput);
     console.log("Combined Input = ", updatedInput);
     try {
       await generateResponse({

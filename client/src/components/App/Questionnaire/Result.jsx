@@ -43,7 +43,20 @@ const Result = ({ generatedResponse, onRegenerate }) => {
     }
 
     // update the result text with the loaded data
-    setResultText(generatedResponse || "");
+    if (generatedResponse) {
+      const words = generatedResponse.split(" ");
+      setResultText("");
+
+      const typewriteResponse = (index) => {
+        if (index < words.length) {
+          setResultText((prevText) => `${prevText}${words[index]} `);
+          setTimeout(() => {
+            typewriteResponse(index + 1);
+          }, 100);
+        }
+      };
+      typewriteResponse(0);
+    }
   }, [generatedResponse]);
 
   const handleRegenerate = async () => {
