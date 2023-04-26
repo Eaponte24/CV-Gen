@@ -20,7 +20,7 @@ const resolvers = {
       const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt,
-        max_tokens: 150,
+        max_tokens: 1100,
       });
       const responseData = response.data.choices[0].text.trim();
       

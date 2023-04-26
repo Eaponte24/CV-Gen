@@ -36,7 +36,7 @@ const QuestionApp = () => {
         variables: {
           prompt: updatedInput,
           model: "text-davinci-003",
-          max_tokens: 150,
+          max_tokens: 1100,
         },
       });
     } catch (error) {
