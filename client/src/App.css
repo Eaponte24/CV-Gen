@@ -24,11 +24,12 @@ textarea {
 	margin-right: auto;
 	text-align: center;
 	min-width: 320px;
-	min-height: 100vh;
+	height: 100vh;
 }
 
 .quizDiv {
-	margin:30px 30px
+	margin:30px 30px;
+	margin-top: 10vh
 }
 
 .quizDiv textarea,
