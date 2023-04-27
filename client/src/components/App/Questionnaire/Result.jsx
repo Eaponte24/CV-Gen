@@ -108,7 +108,7 @@ const Result = ({ generatedResponse, onRegenerate }) => {
         className="quizTextarea"
         value={resultText}
         onChange={handleChange}
-        placeholder="Your generated text will appear here."
+        placeholder="Thinking..."
       ></textarea>
       <div className="resultContainer my-5">
         <button
