@@ -121,7 +121,6 @@ input::placeholder {
 }
 
 textarea::placeholder {
-	font-size: 16pt;
 	color: rgb(255, 255, 255) !important;
 }
 

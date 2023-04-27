@@ -67,6 +67,7 @@ const Result = ({ generatedResponse, onRegenerate }) => {
   const handleChange = (e) => {
     // allow the user to edit the cover letter
     setResultText(e.target.value);
+    autoResize(e);
   };
 
   const handleCopy = async () => {
@@ -108,7 +109,7 @@ const Result = ({ generatedResponse, onRegenerate }) => {
         className="quizTextarea"
         value={resultText}
         onChange={handleChange}
-        placeholder="Your generated text will appear here."
+        placeholder="Thinking..."
       ></textarea>
       <div className="resultContainer my-5">
         <button
