@@ -42,7 +42,7 @@ export default function Header() {
 						Log in
 					</a>
 					<a
-						href="#"
+						href="https://www.buymeacoffee.com/fr5drjnkq7M"
 						className="rounded-md bg-white px-3 py-2 px-2.5 py-1.5 text-lg font-semibold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"
 					>
 						Support us
