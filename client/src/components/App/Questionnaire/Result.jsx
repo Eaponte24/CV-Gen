@@ -16,7 +16,11 @@ const resultMessages = [
   "You can do this.",
   "Here's your cover letter.",
   "Don't tell them how you came up with this.",
-  // add to/edit/remove any of these messages as you see fit
+  "You're welcome.",
+  "You legally need to tip us if you get the job.",
+  "You're going to do great.",
+  "Best of luck.",
+  "You're going to do great.",
 ];
 
 function getRandomMessage() {
@@ -52,7 +56,7 @@ const Result = ({ generatedResponse, onRegenerate }) => {
           setResultText((prevText) => `${prevText}${words[index]} `);
           setTimeout(() => {
             typewriteResponse(index + 1);
-          }, 100);
+          }, 175);
         }
       };
       typewriteResponse(0);
@@ -101,7 +105,7 @@ const Result = ({ generatedResponse, onRegenerate }) => {
       >
         {resultHeading}
       </p>
-			<p className="my-7">
+			<p className="mt-7 mb-9">
 			💡<b>Tip:</b> you can review & edit your cover letter below before copying it.
 			</p>
       <textarea

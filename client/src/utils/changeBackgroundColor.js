@@ -1,5 +1,5 @@
 let currentColorIndex = 0;
-const colors = ["#24353C", "#306B64", "#C79A3F", "#D47836", "#BE4E34"];
+const colors = ["#434a42","#626c66","#918b76","#aca885"];
 
 const changeBackgroundColor = () => {
 	const nextColor = getNextColor();
@@ -9,7 +9,7 @@ const changeBackgroundColor = () => {
 
 const getNextColor = () => {
 	const color = colors[currentColorIndex];
-	currentColorIndex = (currentColorIndex + 1) % colors.length;
+	currentColorIndex = (currentColorIndex + .5);
 	return color;
 };
 

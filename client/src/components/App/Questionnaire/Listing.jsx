@@ -53,7 +53,7 @@ const Listing = ({ onSubmit }) => {
 					placeholder="Paste here..."
 					autoFocus
 				/>
-				<div className="submitContainer">
+				<div className="submitContainer my-5">
 				<button
 						type="submit"
 						className="submitBtn rounded-md bg-white px-2.5 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"
