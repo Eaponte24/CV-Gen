@@ -1,6 +1,7 @@
-import './App.css'
 import React from 'react';
+import './App.css'
 import './index.css';
+import Header from './components/App/Header/Header';
 import Questonnaire from './components/App/Questonnaire';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -28,6 +29,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Header />
       <Routes>
         <Route path="/" element={<Questonnaire />} />
       </Routes>
