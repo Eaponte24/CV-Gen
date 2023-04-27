@@ -101,7 +101,7 @@ const Result = ({ generatedResponse, onRegenerate }) => {
       >
         {resultHeading}
       </p>
-			<p className="my-7">
+			<p className="mt-7 mb-9">
 			💡<b>Tip:</b> you can review & edit your cover letter below before copying it.
 			</p>
       <textarea

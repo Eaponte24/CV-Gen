@@ -1,3 +1,8 @@
+/* Header component custom CSS */
+#comingsoon{
+	color: red;
+}
+
 /* Quiz component reset CSS */
 
 input[type="text"],
