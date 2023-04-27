@@ -46,9 +46,9 @@ const Result = ({ generatedResponse, onRegenerate }) => {
     if (generatedResponse) {
       const words = generatedResponse.split(" ");
       setResultText("");
-
       const typewriteResponse = (index) => {
         if (index < words.length) {
+          autoResize({ target: textarea });
           setResultText((prevText) => `${prevText}${words[index]} `);
           setTimeout(() => {
             typewriteResponse(index + 1);
