@@ -1,6 +1,11 @@
 /* Header component custom CSS */
-#comingsoon{
-	color: red;
+.nav {
+	
+}
+
+#soonBadge{
+	background-color: rgb(223, 72, 72);
+	border-radius: 5px;
 }
 
 /* Quiz component reset CSS */
