@@ -44,4 +44,4 @@ Follow the guided questionnaire to input your information. The application will 
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+GNU General Public License v3.0 or later, see [License](https://github.com/Eaponte24/CV-Gen/blob/main/LICENSE) for details.
