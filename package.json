@@ -25,6 +25,7 @@
 		"@headlessui/react": "^1.7.14",
 		"@heroicons/react": "^2.0.17",
 		"dotenv": "^16.0.3",
-		"uuid": "^9.0.0"
+		"uuid": "^9.0.0",
+		"bcrypt": "^5.0.0"
 	}
 }
