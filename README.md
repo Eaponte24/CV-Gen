@@ -42,9 +42,6 @@ Follow the guided questionnaire to input your information. The application will 
 - [Ricky Aponte](https://github.com/Eaponte24 "Ricky Aponte"), Back-end development
 - [Chris Lemmon](https://github.com/theLemmonade "Chris Lemmon"), Front-end development
 
-https://github.com/Eaponte24
-
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
