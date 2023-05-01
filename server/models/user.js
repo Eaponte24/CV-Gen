@@ -20,24 +20,7 @@ const userSchema = new Schema(
             required: true,
             minlength: 5
         },
-        wins: {
-            type: Number,
-            default: 0
-        },
-        losses: {
-            type: Number,
-            default: 0
-        },
-        totalGames: {
-            type: Number,
-            default: 0
-        },
-        games: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Game'
-            }
-        ]
+        
     },
     {
         toJSON: {
