@@ -11,33 +11,22 @@ CV-Gen is a React application that generates personalized cover letters and resu
 ## Table of Contents
 
 - [Features](#features)
-- [Access](#Access)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [Authors](#authors)
 - [License](#license)
 
 ## Features
 
-- Easy to access with smooth UX and fair pricing
 - Integration with OpenAI's GPT-4 API
-- Generated cover letter and resume preview with editing capabilities
+- Generated cover letter and resume with preview and editing capabilities
+- Easy to access with smooth responsive UX and fair pricing teirs
+- User registration and login functionality
 - Copy to clipboard and file download functionality
-
-## Access
-
-Visit out deployed webapp at https://cvgen.ai
+- Store and recall previously generated cover letters
 
 ## Usage
 
-Follow the guided questionnaire to input your information. The application will generate a cover letter or resume based on your responses. You can review, edit, and copy the generated cover letter to your clipboard.
-
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Commit your changes.
-4. Create a pull request.
+Visit out deployed webapp at https://cvgen.ai
 
 ## Authors
 - [Ricky Aponte](https://github.com/Eaponte24 "Ricky Aponte"), Back-end development
