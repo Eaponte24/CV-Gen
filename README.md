@@ -13,6 +13,7 @@ CVGen is a React application that generates personalized cover letters and resum
 - [Access](#Access)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Authors](#authors)
 - [License](#license)
 
 ## Features
@@ -36,6 +37,13 @@ Follow the guided questionnaire to input your information. The application will 
 2. Create a new branch for your feature or bugfix.
 3. Commit your changes.
 4. Create a pull request.
+
+##Authors
+- [Ricky Aponte](https://github.com/Eaponte24 "Ricky Aponte"), Back-end development
+- [Chris Lemmon](https://github.com/theLemmonade "Chris Lemmon"), Front-end development
+
+https://github.com/Eaponte24
+
 
 ## License
 
