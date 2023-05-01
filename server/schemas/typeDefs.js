@@ -2,6 +2,14 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
+type User {
+  _id: ID
+  username: String
+  email: String
+  password: String
+}
+
+
 type Model {
   id: String!
   object: String!
@@ -35,10 +43,17 @@ enum TrainingStatus {
 }
 
 type Query {
+  me: User
+  users: [User]
+  user(username: String!): User
   retrieveModel(modelName: String!): Model!
 }
 
+"create mutation for login not using auth yet" 
+
 type Mutation {
+  login(email: String!, password: String!): User
+  addUser(username: String!, email: String!, password: String!): User
   generateResponse(prompt: String!, model: String!, max_tokens: Int!): String
 }
 `;
