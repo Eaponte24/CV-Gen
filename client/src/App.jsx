@@ -3,6 +3,7 @@ import "./App.css";
 import "./index.css";
 import Header from "./components/App/Header/Nav";
 import Questonnaire from "./components/App/Questonnaire";
+import Login from "./components/App/Login";
 import {
 	ApolloClient,
 	InMemoryCache,
@@ -36,6 +37,7 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path="/" element={<Questonnaire />} />
+				<Route path="/login" element={<Login />} />
 			</Routes>
 		</ApolloProvider>
 	);

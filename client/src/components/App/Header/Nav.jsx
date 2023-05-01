@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link, NavLink } from "react-router-dom";
 
 const navigation = [
-  { name: "Cover Letter", href: "#" },
+  { name: "Cover Letter", href: "/" },
   { name: "Resume", href: "#" },
 ];
 
@@ -35,12 +36,12 @@ export default function Header() {
           <span id="soonBadge">Coming soon!</span>
         </div>
         <div className="flex flex-1 items-center justify-end gap-x-6">
-          <a
-            href="#"
-            className="lg:text-white-900 hidden lg:block lg:text-lg lg:font-semibold lg:leading-6"
+          <Link
+            to="/login"
+            className="-mx-3 block rounded-lg px-3 py-2.5 text-lg font-semibold leading-7 text-gray-900 hover:bg-gray-50"
           >
             Log in
-          </a>
+          </Link>
           <a
             href="https://www.buymeacoffee.com/fr5drjnkq7M"
             className="rounded-md bg-white px-3 py-2 px-2.5 py-1.5 text-lg font-semibold text-gray-900 shadow-sm ring-1 hover:bg-gray-200"
@@ -101,12 +102,12 @@ export default function Header() {
                 ))}
               </div>
               <div className="py-6">
-                <a
-                  href="#"
+                <Link
+                  to="/login"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-lg font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
-                </a>
+                </Link>
               </div>
             </div>
           </div>
