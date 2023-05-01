@@ -1,9 +1,10 @@
 # CVGen
 
-![GitHub last commit](https://img.shields.io/github/last-commit/Eaponte24/CV-Gen)
-![GitHub issues](https://img.shields.io/github/issues/Eaponte24/CV-Gen)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/Eaponte24/CV-Gen)
-![License](https://img.shields.io/github/license/Eaponte24/CV-Gen)
+[![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat)](https://github.com/Eaponte24/CV-Gen/graphs/commit-activity)
+[![GitHub contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg?style=flat)](https://github.com/Eaponte24/CV-Gen/graphs/contributors) 
+[![Issues](https://img.shields.io/github/issues-raw/tterb/PlayMusic.svg?maxAge=25000)](https://github.com/Eaponte24/CV-Gen/issues)  
+[![Donate](https://img.shields.io/badge/$-support-ff69b4.svg?style=flat)](https://www.buymeacoffee.com/fr5drjnkq7M) 
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
 CVGen is a React application that generates personalized cover letters and resumes using OpenAI's GPT-4. Users answer a series of questions, provide the job listing, and the app uses their answers generate text that's tailored to the position.
 
@@ -38,7 +39,7 @@ Follow the guided questionnaire to input your information. The application will 
 3. Commit your changes.
 4. Create a pull request.
 
-##Authors
+## Authors
 - [Ricky Aponte](https://github.com/Eaponte24 "Ricky Aponte"), Back-end development
 - [Chris Lemmon](https://github.com/theLemmonade "Chris Lemmon"), Front-end development
 
