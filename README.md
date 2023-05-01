@@ -34,7 +34,7 @@ CV-Gen is a React application that generates personalized cover letters and rés
 
 ## Usage
 
-Visit out deployed webapp at https://cvgen.ai
+Visit out deployed webapp at https://cvgen.ai (coming soon!)
 
 ## Authors
 - [Ricky Aponte](https://github.com/Eaponte24 "Ricky Aponte"), Back-end development
