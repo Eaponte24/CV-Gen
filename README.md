@@ -3,8 +3,8 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/Eaponte24/CV-Gen.svg?style=flat)](https://github.com/Eaponte24/CV-Gen/graphs/commit-activity)
 [![GitHub contributors](https://img.shields.io/github/contributors/Eaponte24/CV-Gen.svg?style=flat)](https://github.com/Eaponte24/CV-Gen/graphs/contributors) 
 [![Issues](https://img.shields.io/github/issues-raw/Eaponte24/CV-Gen.svg?maxAge=25000)](https://github.com/Eaponte24/CV-Gen/issues)  
-[![Website](https://img.shields.io/website?up_color=green&up_message=online&url=https%3A%2F%2Fcvgen.ai)](https://cvgen.ai)
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/Eaponte24/CV-Gen/blob/main/LICENSE)
+[![Website](https://img.shields.io/website?up_color=green&up_message=online&url=https%3A%2F%2Fcvgen.ai)](https://cvgen.ai)
 [![Donate](https://img.shields.io/badge/$-support-ff69b4.svg?style=flat)](https://www.buymeacoffee.com/fr5drjnkq7M) 
 
 CV-Gen is a React application that generates personalized cover letters and résumés using OpenAI's GPT-4. Users answer a series of questions, provide the job listing description, and the app uses their answers to generate text that's tailored to the position.
