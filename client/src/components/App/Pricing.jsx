@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RadioGroup } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/20/solid";
+import setBackgroundColor from "../../utils/changeBackgroundColor";
 
 const frequencies = [
 	{ value: "monthly", label: "Monthly", priceSuffix: "/month" },
@@ -52,6 +53,11 @@ function classNames(...classes) {
 
 export default function Pricing() {
 	const [frequency, setFrequency] = useState(frequencies[0]);
+
+	useEffect(() => {
+		// change the background color
+		setBackgroundColor("#354f52");
+	}, []);
 
 	return (
 		<div className="py-24 sm:py-32">
@@ -113,19 +119,34 @@ export default function Pricing() {
 									</span>
 								) : null}
 							</p>
-							<a
-								href={tier.href}
-								target="_blank"
-								aria-describedby={tier.id}
-								className={classNames(
-									tier.featured
-										? "bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white"
-										: "bg-indigo-800 text-white shadow-sm hover:bg-indigo-900 focus-visible:outline-indigo-600",
-									"mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-								)}
-							>
-								{tier.cta}
-							</a>
+							{tier.cta !== "Generate" ? (
+								<a
+									href={tier.href}
+									target="_blank"
+									aria-describedby={tier.id}
+									className={classNames(
+										tier.featured
+											? "bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white"
+											: "bg-indigo-800 text-white shadow-sm hover:bg-indigo-900 focus-visible:outline-indigo-600",
+										"mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+									)}
+								>
+									{tier.cta}
+								</a>
+							) : (
+								<a
+									href={tier.href}
+									aria-describedby={tier.id}
+									className={classNames(
+										tier.featured
+											? "bg-white/10 text-gray-800 hover:bg-white/20 focus-visible:outline-white"
+											: "bg-white/90 text-gray-900 shadow-sm hover:bg-white/80 focus-visible:outline-indigo-600",
+										"mt-6 block rounded-md py-2 px-3 text-center text-sm font-bold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+									)}
+								>
+									{tier.cta}
+								</a>
+							)}
 							<ul
 								role="list"
 								className={classNames(
