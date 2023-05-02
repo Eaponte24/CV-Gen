@@ -21,7 +21,7 @@ const tiers = [
 	{
 		name: "Pro",
 		id: "tier-pro",
-		href: "#pro",
+		href: "https://buy.stripe.com/5kA6p1aFq4ll5WMfZ1",
 		price: { monthly: "$3", annually: "$12" },
 		description:
 			"For the competitive job-seeker. A resume for any-and-all applications.",
@@ -32,7 +32,7 @@ const tiers = [
 	{
 		name: "Supporter",
 		id: "tier-supporter",
-		href: "https://www.buymeacoffee.com/fr5drjnkq7M",
+		href: "https://donate.stripe.com/7sI6p128UdVV1GwfZ2",
 		price: "Custom",
 		description:
 			"Donate what you think is fair to support the development of CV-Gen.",
@@ -50,7 +50,7 @@ function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function Pricing() {
 	const [frequency, setFrequency] = useState(frequencies[0]);
 
 	return (
@@ -65,37 +65,12 @@ export default function Example() {
 					</p>
 				</div>
 				<p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-100"></p>
-				<div className="mt-16 flex justify-center">
-					<RadioGroup
-						value={frequency}
-						onChange={setFrequency}
-						className="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
-					>
-						<RadioGroup.Label className="sr-only">
-							Payment frequency
-						</RadioGroup.Label>
-						{frequencies.map((option) => (
-							<RadioGroup.Option
-								key={option.value}
-								value={option}
-								className={({ checked }) =>
-									classNames(
-										checked ? "bg-indigo-800 text-white" : "text-gray-100",
-										"cursor-pointer rounded-full px-2.5 py-1"
-									)
-								}
-							>
-								<span>{option.label}</span>
-							</RadioGroup.Option>
-						))}
-					</RadioGroup>
-				</div>
 				<div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 drop-shadow-2xl lg:mx-0 lg:max-w-none lg:grid-cols-3">
 					{tiers.map((tier) => (
 						<div
 							key={tier.id}
 							className={classNames(
-								tier.featured ? "bg-gray-900 ring-gray-900" : "ring-gray-500",
+								tier.featured ? "bg-gray-900 ring-gray-900" : "ring-gray-200",
 								"rounded-3xl p-8 ring-1 xl:p-10"
 							)}
 						>
@@ -130,7 +105,7 @@ export default function Example() {
 								{typeof tier.price !== "string" ? (
 									<span
 										className={classNames(
-											tier.featured ? "text-gray-300" : "text-gray-400",
+											tier.featured ? "text-gray-300" : "text-gray-300",
 											"text-sm font-semibold leading-6"
 										)}
 									>
@@ -140,6 +115,7 @@ export default function Example() {
 							</p>
 							<a
 								href={tier.href}
+								target="_blank"
 								aria-describedby={tier.id}
 								className={classNames(
 									tier.featured

@@ -40,7 +40,7 @@ export default function Example() {
 						<Menu.Item>
 							{({ active }) => (
 								<a
-									href="#"
+									href="https://billing.stripe.com/p/login/5kA03U9jh2iCh0c144"
 									className={classNames(
 										active ? "bg-gray-100 text-gray-900" : "text-gray-700",
 										"block px-4 py-2 text-sm"
