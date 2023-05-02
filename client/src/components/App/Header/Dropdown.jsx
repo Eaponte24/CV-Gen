@@ -33,10 +33,16 @@ export default function Example() {
 						<p className="text-sm">Signed in as</p>
 						<p className="truncate text-sm font-medium text-gray-900">
 							tom@example.com
-                            {/* we need to import username from db here*/}
+							{/* we need to import username from db here*/}
 						</p>
 					</div>
 					<div className="py-1">
+						<Menu.Item>
+							<p>
+								Credits:
+								{/* add credit count here */}
+							</p>
+						</Menu.Item>
 						<Menu.Item>
 							{({ active }) => (
 								<a
