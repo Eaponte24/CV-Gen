@@ -14,6 +14,10 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { Route, Routes } from "react-router-dom";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 const httpLink = createHttpLink({
 	uri: "http://localhost:3001/graphql",
@@ -36,13 +40,15 @@ const client = new ApolloClient({
 function App() {
 	return (
 		<ApolloProvider client={client}>
-			<Header />
-			<Routes>
-				<Route path="/" element={<Questonnaire />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/pricing" element={<Pricing />} />
-				<Route path="/signup" element={<Signup />} />
-			</Routes>
+			<Elements stripe={stripePromise}>
+				<Header />
+				<Routes>
+					<Route path="/" element={<Questonnaire />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/pricing" element={<Pricing />} />
+					<Route path="/signup" element={<Signup />} />
+				</Routes>
+			</Elements>
 		</ApolloProvider>
 	);
 }
