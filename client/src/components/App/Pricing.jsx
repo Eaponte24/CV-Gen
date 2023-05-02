@@ -32,7 +32,7 @@ const tiers = [
 	{
 		name: "Supporter",
 		id: "tier-supporter",
-		href: "https://www.buymeacoffee.com/fr5drjnkq7M",
+		href: "https://donate.stripe.com/7sI6p128UdVV1GwfZ2",
 		price: "Custom",
 		description:
 			"Donate what you think is fair to support the development of CV-Gen.",
@@ -54,7 +54,7 @@ export default function Pricing() {
 	const [frequency, setFrequency] = useState(frequencies[0]);
 
 	return (
-		<div className="py-24 sm:py-32 h-full">
+		<div className="py-24 sm:py-32">
 			<div className="mx-auto max-w-7xl px-6 lg:px-8">
 				<div className="mx-auto max-w-4xl text-center">
 					<h2 className="text-base font-semibold leading-7 text-gray-100">
@@ -70,7 +70,7 @@ export default function Pricing() {
 						<div
 							key={tier.id}
 							className={classNames(
-								tier.featured ? "bg-gray-900 ring-gray-900" : "ring-gray-500",
+								tier.featured ? "bg-gray-900 ring-gray-900" : "ring-gray-200",
 								"rounded-3xl p-8 ring-1 xl:p-10"
 							)}
 						>
@@ -105,7 +105,7 @@ export default function Pricing() {
 								{typeof tier.price !== "string" ? (
 									<span
 										className={classNames(
-											tier.featured ? "text-gray-300" : "text-gray-400",
+											tier.featured ? "text-gray-300" : "text-gray-300",
 											"text-sm font-semibold leading-6"
 										)}
 									>
