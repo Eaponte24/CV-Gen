@@ -21,7 +21,7 @@ const tiers = [
 	{
 		name: "Pro",
 		id: "tier-pro",
-		href: "#pro",
+		href: "https://buy.stripe.com/5kA6p1aFq4ll5WMfZ1",
 		price: { monthly: "$3", annually: "$12" },
 		description:
 			"For the competitive job-seeker. A resume for any-and-all applications.",
@@ -54,7 +54,7 @@ export default function Pricing() {
 	const [frequency, setFrequency] = useState(frequencies[0]);
 
 	return (
-		<div className="py-24 sm:py-32">
+		<div className="py-24 sm:py-32 h-full">
 			<div className="mx-auto max-w-7xl px-6 lg:px-8">
 				<div className="mx-auto max-w-4xl text-center">
 					<h2 className="text-base font-semibold leading-7 text-gray-100">
@@ -65,31 +65,6 @@ export default function Pricing() {
 					</p>
 				</div>
 				<p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-100"></p>
-				<div className="mt-16 flex justify-center">
-					<RadioGroup
-						value={frequency}
-						onChange={setFrequency}
-						className="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
-					>
-						<RadioGroup.Label className="sr-only">
-							Payment frequency
-						</RadioGroup.Label>
-						{frequencies.map((option) => (
-							<RadioGroup.Option
-								key={option.value}
-								value={option}
-								className={({ checked }) =>
-									classNames(
-										checked ? "bg-indigo-800 text-white" : "text-gray-100",
-										"cursor-pointer rounded-full px-2.5 py-1"
-									)
-								}
-							>
-								<span>{option.label}</span>
-							</RadioGroup.Option>
-						))}
-					</RadioGroup>
-				</div>
 				<div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 drop-shadow-2xl lg:mx-0 lg:max-w-none lg:grid-cols-3">
 					{tiers.map((tier) => (
 						<div
@@ -140,6 +115,7 @@ export default function Pricing() {
 							</p>
 							<a
 								href={tier.href}
+								target="_blank"
 								aria-describedby={tier.id}
 								className={classNames(
 									tier.featured
