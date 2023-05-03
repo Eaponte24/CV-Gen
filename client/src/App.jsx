@@ -42,14 +42,18 @@ function App() {
 	return (
 		<ApolloProvider client={client}>
 			<Elements stripe={stripePromise}>
-				<Header />
-				<Routes>
-					<Route path="/" element={<Questonnaire />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/pricing" element={<Pricing />} />
-					<Route path="/signup" element={<Signup />} />
-				</Routes>
-				<Footer />
+				<body class="flex min-h-screen flex-col">
+					<Header />
+					<main class="flex-grow">
+						<Routes>
+							<Route path="/" element={<Questonnaire />} />
+							<Route path="/login" element={<Login />} />
+							<Route path="/pricing" element={<Pricing />} />
+							<Route path="/signup" element={<Signup />} />
+						</Routes>
+					</main>
+					<Footer />
+				</body>
 			</Elements>
 		</ApolloProvider>
 	);
