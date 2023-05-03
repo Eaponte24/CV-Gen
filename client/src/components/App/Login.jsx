@@ -20,7 +20,7 @@ export default function Example() {
           This example requires updating your template:
   
           ```
-          <html class="h-full bg-white">
+          <html class="h-full">
           <body class="h-full">
           ```
         */}

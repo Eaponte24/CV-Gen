@@ -55,7 +55,6 @@ export default function Pricing() {
 	const [frequency, setFrequency] = useState(frequencies[0]);
 
 	useEffect(() => {
-		// change the background color
 		setBackgroundColor("#354f52");
 	}, []);
 

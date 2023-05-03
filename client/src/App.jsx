@@ -6,6 +6,7 @@ import Questonnaire from "./components/App/Questonnaire";
 import Login from "./components/App/Login";
 import Pricing from "./components/App/Pricing";
 import Signup from "./components/App/Signup";
+import Footer from "./components/App/Footer/Footer";
 import {
 	ApolloClient,
 	InMemoryCache,
@@ -48,6 +49,7 @@ function App() {
 					<Route path="/pricing" element={<Pricing />} />
 					<Route path="/signup" element={<Signup />} />
 				</Routes>
+				<Footer />
 			</Elements>
 		</ApolloProvider>
 	);
