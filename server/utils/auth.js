@@ -5,30 +5,28 @@ const expiration = '2h';
 
 module.exports = {
   authMiddleware: function ({ req }) {
-    let token;
+    let token = req.body.token || req.query.token || req.headers.authorization;
 
     if (req.headers.authorization) {
-      const [scheme, tokenValue] = req.headers.authorization.split(' ');
-      if (scheme === 'Bearer' && tokenValue) {
-        token = tokenValue;
-      }
+      token = token.split(' ').pop().trim();
     }
 
-    if (token) {
-      try {
-        const { data } = jwt.verify(token, secret, { maxAge: expiration });
-        req.user = data;
-      } catch (err) {
-        console.log('Invalid or expired token:', err);
-        throw new Error('Invalid or expired token');
-      }
+    if (!token) {
+      return req;
+    }
+
+    try {
+      const { data } = jwt.verify(token, secret, { maxAge: expiration });
+      req.user = data;
+    } catch {
+      console.log('Invalid token');
     }
 
     return req;
   },
 
-  signToken: function ({ email, username, _id }) {
-    const payload = { email, username, _id };
+  signToken: function ({ email, _id }) {
+    const payload = { email, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };

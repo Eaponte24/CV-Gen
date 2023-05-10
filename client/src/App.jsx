@@ -18,6 +18,8 @@ import { Route, Routes } from "react-router-dom";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
+import Auth from './utils/auth';
+
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 const httpLink = createHttpLink({
@@ -25,13 +27,16 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
+	const token = localStorage.getItem('id_token');
+	const reactAppKey = process.env.REACT_APP_KEY;
 	return {
-		headers: {
-			...headers,
-			authorization: `Bearer ${process.env.REACT_APP_KEY}`,
-		},
+	  headers: {
+		...headers,
+		authorization: token ? `Bearer ${token}` : '',
+		'X-React-App-Key': reactAppKey,
+	  },
 	};
-});
+  });
 
 const client = new ApolloClient({
 	link: authLink.concat(httpLink),

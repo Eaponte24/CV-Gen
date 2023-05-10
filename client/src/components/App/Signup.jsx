@@ -18,6 +18,7 @@ export default function Example() {
       });
       Auth.login(data.addUser.token);
       console.log(data);
+      console.log(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
