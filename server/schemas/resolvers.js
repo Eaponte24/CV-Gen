@@ -1,5 +1,6 @@
 const { Configuration, OpenAIApi } = require("openai");
 const {User} = require('../models');
+const { AuthenticationError } = require("apollo-server-express");
 require("dotenv").config();
 
 
