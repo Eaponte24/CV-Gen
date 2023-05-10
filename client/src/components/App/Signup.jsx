@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../.././utils/mutation";
 
+import Auth from "../.././utils/auth";
+
 export default function Example() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +16,7 @@ export default function Example() {
       const { data } = await addUser({
         variables: { email, password },
       });
+      Auth.login(data.addUser.token);
       console.log(data);
     } catch (e) {
       console.error(e);

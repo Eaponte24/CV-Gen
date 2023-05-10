@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../.././utils/mutation";
 
+import Auth from "../.././utils/auth";
+
 export default function Example() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +17,7 @@ export default function Example() {
       const { data } = await loginUser({
         variables: { email, password },
       });
-
+      Auth.login(data.login.token);
       // Display message if the user was successfully logged in
       console.log("User logged in successfully!");
     } catch (err) {
