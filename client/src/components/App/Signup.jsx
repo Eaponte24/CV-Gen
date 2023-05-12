@@ -10,6 +10,8 @@ export default function Example() {
 
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
+
+// this onSubmit is adding the user to the database
   const onSubmit = async (e) => {
     e.preventDefault();
     try {

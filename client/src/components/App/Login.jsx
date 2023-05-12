@@ -10,6 +10,8 @@ export default function Example() {
   const [password, setPassword] = useState("");
   const [loginUser, { loading, error }] = useMutation(LOGIN_USER);
 
+
+  // this handleFormSubmit is logging the user in
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
