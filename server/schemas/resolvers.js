@@ -1,5 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
 const {User} = require('../models');
+const { AuthenticationError } = require("apollo-server-express");
+const { authMiddleware, signToken } = require('../utils/auth');
 require("dotenv").config();
 
 
@@ -39,21 +41,29 @@ Query: {
 
   Mutation: {
 
-    addUser: async (parent, args ) => {
+    addUser: async (parent, args, context) => {
+      // Apply authMiddleware
+      authMiddleware(context);
+
       const user = await User.create(args);
-      return user;
+      const token = signToken(user);
+      return { token, user };
     },
 
-    login: async (parent, { email, password }) => {
+    login: async (parent, { email, password }, context) => {
+      // Apply authMiddleware
+      authMiddleware(context);
+
       const user = await User.findOne({ email });
       if (!user) {
-        throw new AuthenticationError("Incorrect credentials");
+        throw new AuthenticationError('Incorrect credentials');
       }
       const correctPw = await user.isCorrectPassword(password);
       if (!correctPw) {
-        throw new AuthenticationError("Incorrect credentials");
+        throw new AuthenticationError('Incorrect credentials');
       }
-      return user;
+      const token = signToken(user);
+      return { token, user };
     },
 
     generateResponse: async (_, { prompt }) => {

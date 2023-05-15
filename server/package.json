@@ -19,7 +19,8 @@
     "graphql": "^16.6.0",
     "isomorphic-fetch": "^3.0.0",
     "mongoose": "^6.1.8",
-    "openai": "^3.2.1"
+    "openai": "^3.2.1",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"

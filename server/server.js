@@ -1,6 +1,7 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+const { authMiddleware } = require('./utils/auth');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -18,9 +19,18 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: () => ({
-    openai
-  })
+  context: async ({ req }) => {
+    const context = {
+      req,
+      openai
+    };
+
+    // Apply authMiddleware
+    await authMiddleware(context);
+
+    return context;
+  },
+  introspection: process.env.NODE_ENV !== 'production',
 });
 
 app.use(express.urlencoded({ extended: false }));
@@ -34,7 +44,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
-const startServer = async () => {
+const startServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
 
@@ -46,4 +56,4 @@ const startServer = async () => {
   });
 };
 
-startServer();
+startServer(typeDefs, resolvers);
