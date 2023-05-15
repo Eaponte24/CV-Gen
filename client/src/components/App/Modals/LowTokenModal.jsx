@@ -1,6 +1,6 @@
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
-export default function Example() {
+export default function LowTokenModal() {
 	return (
 		<div className="rounded-md bg-yellow-50 p-4">
 			<div className="flex">
@@ -13,7 +13,7 @@ export default function Example() {
 				<div className="ml-3">
 					<h3 className="text-sm font-medium text-yellow-800">Head's up</h3>
 					<p className="text-sm text-yellow-700">
-						You have no credits left.{" "}
+						You have few credits remaining.
 						<a
 							href="/pricing"
 							className="font-medium text-yellow-700 underline hover:text-yellow-600"

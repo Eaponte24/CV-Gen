@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
 import Header from "./components/App/Header/Nav";
@@ -7,6 +7,10 @@ import Login from "./components/App/Login";
 import Pricing from "./components/App/Pricing";
 import Signup from "./components/App/Signup";
 import Footer from "./components/App/Footer/Footer";
+import NewTokenModal from "./components/App/Modals/NewTokenModal";
+import LowTokenModal from "./components/App/Modals/LowTokenModal";
+import NoTokenModal from "./components/App/Modals/NoTokenModal";
+import showModal from "./utils/showModal";
 import {
 	ApolloClient,
 	InMemoryCache,
@@ -39,21 +43,42 @@ const client = new ApolloClient({
 });
 
 function App() {
+	const [tokens, setTokens] = useState(0);
+	const [newSub, setNewSub] = useState(false);
+
+	useEffect(() => {
+		async function fetchTokenCount() {
+			// Call API to fetch the user's token count and tier
+			const tokens = 2; // Replace with the actual token count from db
+			const tier = "free"; // Replace with the actual tier from db
+			setTokens(tokens);
+			setNewSub(tier === "pro");
+		}
+
+		fetchTokenCount();
+	}, []);
+
+	const { showNewTokenModal, showLowTokenModal, showNoTokenModal } =
+		showModal(tokens, newSub);
+
 	return (
 		<ApolloProvider client={client}>
 			<Elements stripe={stripePromise}>
-				<body class="flex min-h-screen flex-col">
+				<div className="flex min-h-screen flex-col">
 					<Header />
-					<main class="flex-grow">
+					{showNewTokenModal && <NewTokenModal />}
+					{showLowTokenModal && <LowTokenModal />}
+					{showNoTokenModal && <NoTokenModal />}
+					<div className="flex-grow">
 						<Routes>
 							<Route path="/" element={<Questonnaire />} />
 							<Route path="/login" element={<Login />} />
 							<Route path="/pricing" element={<Pricing />} />
 							<Route path="/signup" element={<Signup />} />
 						</Routes>
-					</main>
+					</div>
 					<Footer />
-				</body>
+				</div>
 			</Elements>
 		</ApolloProvider>
 	);
