@@ -1,9 +1,8 @@
 const { Configuration, OpenAIApi } = require("openai");
-const {User} = require('../models');
+const { User } = require('../models');
 const { AuthenticationError } = require("apollo-server-express");
-const { authMiddleware, signToken } = require('../utils/auth');
+const { signToken } = require('../utils/auth');
 require("dotenv").config();
-
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -12,10 +11,8 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const resolvers = {
-
-Query: {
-  
-    me: async (parent, args, context) => {
+  Query: {
+    me: async (_, __, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id });
         return userData;
@@ -23,13 +20,13 @@ Query: {
       throw new AuthenticationError("Not logged in");
     },
 
-    users: async () => {
+    users: () => {
       return User.find();
     },
 
-    user: async (parent, { username }) => {
-       const params = username ? { username } : {};
-        return User.find(params);
+    user: (_, { username }) => {
+      const params = username ? { username } : {};
+      return User.find(params);
     },
 
     retrieveModel: async (_, { modelName }) => {
@@ -38,22 +35,14 @@ Query: {
     },
   },
 
-
   Mutation: {
-
-    addUser: async (parent, args, context) => {
-      // Apply authMiddleware
-      authMiddleware(context);
-
+    addUser: async (_, args) => {
       const user = await User.create(args);
       const token = signToken(user);
       return { token, user };
     },
 
-    login: async (parent, { email, password }, context) => {
-      // Apply authMiddleware
-      authMiddleware(context);
-
+    login: async (_, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
         throw new AuthenticationError('Incorrect credentials');
@@ -73,7 +62,6 @@ Query: {
         max_tokens: 1100,
       });
       const responseData = response.data.choices[0].text.trim();
-      
 
       return responseData;
     },
@@ -81,5 +69,3 @@ Query: {
 };
 
 module.exports = resolvers;
-
-

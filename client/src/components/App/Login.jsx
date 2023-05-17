@@ -14,11 +14,12 @@ export default function Example() {
   // this handleFormSubmit is logging the user in
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
       const { data } = await loginUser({
         variables: { email, password },
       });
+      console.log(data); // Log the data object
       Auth.login(data.login.token);
       // Display message if the user was successfully logged in
       console.log("User logged in successfully!");
