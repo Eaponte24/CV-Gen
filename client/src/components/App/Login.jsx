@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../.././utils/mutation";
@@ -10,11 +10,10 @@ export default function Example() {
   const [password, setPassword] = useState("");
   const [loginUser, { loading, error }] = useMutation(LOGIN_USER);
 
-
   // this handleFormSubmit is logging the user in
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-  
+
     try {
       const { data } = await loginUser({
         variables: { email, password },
@@ -30,15 +29,15 @@ export default function Example() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div style={{ backgroundColor: "rgb(255, 248, 214)" }} className="flex justify-center items-center min-h-screen">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
             alt="Your Company"
           />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-300">
-            Sign in to your account
+          <h2 style={{ color: "rgb(97, 122, 85)" }} className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
+            Sign in to generate your cover letters!
           </h2>
         </div>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -96,13 +95,14 @@ export default function Example() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-800 px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-indigo-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                style={{ backgroundColor: "rgb(164, 208, 164)", color: "rgb(97, 122, 85)" }}
+                className="flex w-full justify-center rounded-md px-3 py-1.5 text-lg font-semibold leading-6 shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"
               >
                 Sign in
               </button>
             </div>
           </form>
-          <p className="mt-10 text-center text-sm text-gray-400">
+          <p style={{ color: "rgb(97, 122, 85)" }} className="mt-10 text-center text-sm text-gray-400">
             Not a member?{" "}
             <Link
               to="/signup"
