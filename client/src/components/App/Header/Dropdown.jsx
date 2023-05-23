@@ -12,44 +12,36 @@ function classNames(...classes) {
 export default function Example() {
   const { loading, data } = useQuery(GET_ME);
   const user = data?.me || {};
-  const [logoutLoading, setLogoutLoading] = useState(false); // Add logoutLoading state
-  // need to log the token here
+  const [logoutLoading, setLogoutLoading] = useState(false);
+
   console.log("token:", AuthService.getToken());
   console.log("user:", user);
 
-  // auth check
   if (!AuthService.loggedIn()) {
     return null;
   }
 
-  // if there's no user data, return null
   if (!user) {
     return null;
   }
 
-  // if data isn't here yet, say so
   if (loading) {
     return <div>Loading...</div>;
   }
 
   const handleLogout = () => {
-    setLogoutLoading(true); // Set logoutLoading to true
-
-    // Call the logout method from AuthService
+    setLogoutLoading(true);
     AuthService.logout();
-
-    // After logging out, you can redirect the user or perform any other necessary actions
-    // For example, you can redirect the user to the login page
     window.location.assign("/login");
   };
 
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="rounded-md bg-white px-3 py-2 px-2.5 py-1.5 text-lg font-semibold text-gray-900 shadow-sm ring-1 hover:bg-gray-200">
-          {user.email || "Profile"}
+        <Menu.Button className="rounded-md bg-white px-3 p-2 px-2.5 text-lg font-semibold text-gray-900 shadow-sm ring-1 hover:bg-gray-200 flex items-center">
+          <span className="mr-1">{user.email || "Profile"}</span>
           <ChevronDownIcon
-            className="-mr-1 h-5 w-5 text-gray-400"
+            className="-mr-1 h-5 w-5"
             aria-hidden="true"
           />
         </Menu.Button>
@@ -108,16 +100,15 @@ export default function Example() {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      type="button" // Change the button type to "button"
-                      onClick={handleLogout} // Call the handleLogout function on click
-                      disabled={logoutLoading} // Disable the button while logging out
+                      type="button"
+                      onClick={handleLogout}
+                      disabled={logoutLoading}
                       className={classNames(
                         active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                         "block w-full px-4 py-2 text-left text-sm"
                       )}
                     >
-                      {logoutLoading ? "Logging out..." : "Sign out"}{" "}
-                      {/* Display appropriate text based on the logoutLoading state */}
+                      {logoutLoading ? "Logging out..." : "Sign out"}
                     </button>
                   )}
                 </Menu.Item>

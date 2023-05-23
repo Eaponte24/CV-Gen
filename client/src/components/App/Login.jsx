@@ -45,6 +45,7 @@ export default function Example() {
             <div>
               <label
                 htmlFor="email"
+                style={{ color: "rgb(97, 122, 85)" }}
                 className="block text-lg font-medium leading-6 text-gray-300"
               >
                 Email address
@@ -66,6 +67,7 @@ export default function Example() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
+                  style={{ color: "rgb(97, 122, 85)" }}
                   className="block text-lg font-medium leading-6 text-gray-300"
                 >
                   Password
