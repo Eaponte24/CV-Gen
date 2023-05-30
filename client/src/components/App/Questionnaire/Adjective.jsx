@@ -27,7 +27,7 @@ const Adjective = ({ onSubmit }) => {
 	return (
 		<div className="quizDiv">
 			<p
-				className="text-white-900 my-10 text-3xl font-bold tracking-tight sm:text-4xl"
+				className="text-black-900 my-10 text-3xl font-bold tracking-tight sm:text-4xl"
 			>
 				As an employee, describe yourself in one word.
 			</p>
