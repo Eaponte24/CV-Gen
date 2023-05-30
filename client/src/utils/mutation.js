@@ -31,5 +31,14 @@ export const LOGIN_USER = gql`
   }
 `;
 
+export const ADD_COVERLETTER_COUNT = gql`
+  mutation addCoverletterCount($email: String!) {
+    addCoverletterCount(email: $email) {
+      email
+      coverLetterCount
+    }
+  }
+`;
+
 
 

@@ -18,6 +18,11 @@ const userSchema = new Schema(
             minlength: 5
         },
 
+        coverLetterCount: {
+            type: Number,
+            default: 0
+        },
+
     },
 
     {

@@ -6,6 +6,7 @@ type User {
   _id: ID
   email: String
   password: String
+  coverLetterCount: Int
 }
 
 
@@ -59,6 +60,7 @@ type Mutation {
   login(email: String!, password: String!): Auth
   addUser(email: String!, password: String!): Auth
   generateResponse(prompt: String!, model: String!, max_tokens: Int!): String
+  addCoverletterCount(email: String!): User
 }
 `;
 

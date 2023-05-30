@@ -1,7 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
-const { User } = require('../models');
+const { User } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
-const { signToken } = require('../utils/auth');
+const { signToken } = require("../utils/auth");
 require("dotenv").config();
 
 const configuration = new Configuration({
@@ -45,11 +45,11 @@ const resolvers = {
     login: async (_, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
       const correctPw = await user.isCorrectPassword(password);
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
       const token = signToken(user);
       return { token, user };
@@ -64,6 +64,15 @@ const resolvers = {
       const responseData = response.data.choices[0].text.trim();
 
       return responseData;
+    },
+
+    addCoverletterCount: async (_, { email }) => {
+      const user = await User.findOneAndUpdate(
+        { email },
+        { $inc: { coverLetterCount: 1 } },
+        { new: true }
+      );
+      return user;
     },
   },
 };

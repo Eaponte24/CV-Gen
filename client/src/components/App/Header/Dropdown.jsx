@@ -66,7 +66,7 @@ export default function Example() {
             </div>
             <div className="py-1">
               <Menu.Item>
-                <p>Credits: {/* add credit count here */}</p>
+                <p className="bg-gray-100 text-gray-900 block px-4 py-2 text-sm">Cover Letters Generated : {user.coverLetterCount}</p>
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
