@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from "react";
-// import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import Adjective from "./Questionnaire/Adjective";
 import Experience from "./Questionnaire/Experience";
 import Listing from "./Questionnaire/Listing";
 import Result from "./Questionnaire/Result";
 import Loading from "./Questionnaire/Loading";
+import { ADD_COVERLETTER_COUNT } from "../.././utils/mutation";
+import { GET_ME } from "../.././utils/queries";
 // import { GEN_RESPONSE } from "../.././utils/mutation";
+
 
 const QuestionApp = () => {
 	const [currentStep, setCurrentStep] = useState(1);
 	const [combinedInput, setCombinedInput] = useState("");
 	const [generatedResponse, setGeneratedResponse] = useState("");
+	const [addCoverletterCount] = useMutation(ADD_COVERLETTER_COUNT);
+	const { loading, data } = useQuery(GET_ME);
+	const user = data?.me || {};
+	console.log("user:", user);
+
 	// const [generateResponse, { loading, error, data }] =
 	//   useMutation(GEN_RESPONSE);
 	// this is just here for testing purposes
@@ -47,6 +56,16 @@ const QuestionApp = () => {
 		//   console.error(error);
 		// }
 		setGeneratedResponse(placeholderResponse);
+		try {
+			const { data } = await addCoverletterCount({
+				variables: {
+				  email: user.email, // Replace with the email property of the logged-in user object
+				},
+			  });
+			  console.log("Coverletter count updated", data);
+		  } catch (error) {
+			console.error(error);
+		  }
 	};
 
 	const handleRegenerate = async () => {

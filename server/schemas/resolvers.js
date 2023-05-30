@@ -66,15 +66,20 @@ const resolvers = {
       return responseData;
     },
 
-    addCoverletterCount: async (_, { email }) => {
-      const user = await User.findOneAndUpdate(
-        { email },
+    addCoverletterCount: async (_, __, { user }) => {
+      if (!user) {
+        throw new Error('Authentication required');
+      }
+    
+      const updatedUser = await User.findOneAndUpdate(
+        { email: user.email },
         { $inc: { coverLetterCount: 1 } },
         { new: true }
       );
-      return user;
+    
+      return updatedUser;
     },
-  },
+  },   
 };
 
 module.exports = resolvers;
