@@ -54,7 +54,7 @@ type Query {
   retrieveModel(modelName: String!): Model!
 }
 
-"create mutation for login not using auth yet" 
+"created mutations using auth now"
 
 type Mutation {
   login(email: String!, password: String!): Auth
